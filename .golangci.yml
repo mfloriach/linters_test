@@ -1,0 +1,105 @@
+linters-settings:
+  custom:
+    architecture:
+      path: ./plugins/arch.so
+      description: Architecture linter for custome projects
+      original-url: github.com/golangci/example-linter
+  errcheck:
+    check-type-assertions: true
+  goconst:
+    min-len: 2
+    min-occurrences: 3
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+  govet:
+    check-shadowing: true
+    enable:
+      - fieldalignment
+  nolintlint:
+    require-explanation: true
+    require-specific: true
+
+linters:
+  disable-all: true
+  enable:
+    - architecture
+    # - bodyclose
+    # - deadcode
+    # - depguard
+    # - dogsled
+    # - dupl
+    # - errcheck
+    # - exportloopref
+    # - exhaustive
+    # - goconst
+    # - gocritic
+    # - gofmt
+    # - goimports
+    # - gomnd
+    # - gocyclo
+    # - gosec
+    # - gosimple
+    # - govet
+    # - ineffassign
+    # - misspell
+    # - nolintlint
+    # - nakedret
+    # - prealloc
+    # - predeclared
+    # - revive
+    # - staticcheck
+    # - structcheck
+    # - stylecheck
+    # - thelper
+    # - tparallel
+    - typecheck
+    # - unconvert
+    # - unparam
+    # - varcheck
+    # - whitespace
+    # - wsl
+  fast: true
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  new: false
+  fix: true
+
+run:
+  concurrency: 4
+  timeout: 5m
+  tests: false
+  issues-exit-code: 2
+  skip-files:
+    - ".*\\.my\\.go$"
+    - lib/bad.go
+  modules-download-mode: readonly
+  allow-parallel-runners: false
+  go: '1.19'
+
+output:
+  # colored-line-number|line-number|json|tab|checkstyle|code-climate|junit-xml|github-actions
+  # default is "colored-line-number"
+  format: colored-line-number
+
+  # print lines of code with issue, default is true
+  print-issued-lines: true
+
+  # print linter name in the end of issue text, default is true
+  print-linter-name: true
+
+  # make issues output unique by line, default is true
+  uniq-by-line: true
+
+  # add a prefix to the output file references; default is no prefix
+  path-prefix: ""
+
+  # sorts results by: filepath, line and column
+  sort-results: true
