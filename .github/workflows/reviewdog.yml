@@ -18,8 +18,8 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
       - name: golangci-lint
-        env:
-          github_token: ${{ secrets.TOKEN }}
         uses: reviewdog/action-golangci-lint@v2
         with:
+          github_token: ${{ secrets.TOKEN }}
+          reviewdog_flags: "-reporter=github-check"
           golangci_lint_flags: "--exclude-use-default=false"
