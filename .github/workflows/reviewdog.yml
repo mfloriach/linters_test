@@ -9,8 +9,17 @@ jobs:
       - uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest # Optional. [latest,nightly,v.X.Y.Z]
-      - name: Run reviewdog
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
-        run: |
-          reviewdog -reporter=github-check -f=.reviewdog.yml
+      # - name: Run reviewdog
+      #   env:
+      #     github_token: ${{ secrets.TOKEN }}
+      #   run: |
+      #     reviewdog -reporter=github-check -runners=govet
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
+      - name: golangci-lint
+        uses: reviewdog/action-golangci-lint@v2
+          env:
+          github_token: ${{ secrets.TOKEN }}
+        with:
+          golangci_lint_flags: "--enable-all --exclude-use-default=false"
