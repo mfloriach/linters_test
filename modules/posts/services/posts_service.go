@@ -14,10 +14,14 @@ type PostServiceInterface interface {
 }
 
 type postService struct {
-	postRepo repositories.PostRepository
+	postRepo repositories.PostRepositoryInterface
 }
 
-func NewPostService(postRepo repositories.PostRepository) PostServiceInterface {
+func NewPostService(postRepo repositories.PostRepositoryInterface) PostServiceInterface {
+	if postRepo == nil {
+		panic("sdfdsfdsfds")
+	}
+
 	return &postService{postRepo: postRepo}
 }
 

@@ -2,6 +2,6 @@ package repositories
 
 import "context"
 
-type CommentsRepository interface {
+type CommentsRepositoryInterface interface {
 	GetComments(ctx context.Context) string
 }

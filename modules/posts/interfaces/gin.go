@@ -16,6 +16,10 @@ type postController struct {
 }
 
 func NewPostController(router *gin.Engine, postService services.PostServiceInterface) {
+	if postService == nil {
+		panic("please pass the postService")
+	}
+
 	ctr := postController{
 		postService: postService,
 	}

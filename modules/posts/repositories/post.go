@@ -2,6 +2,6 @@ package repositories
 
 import "context"
 
-type PostRepository interface {
+type PostRepositoryInterface interface {
 	GetPosts(ctx context.Context) string
 }

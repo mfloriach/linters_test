@@ -10,7 +10,7 @@ type postMysqlRepository struct {
 	db gorm.DB
 }
 
-func NewPostMysqlRepository(db gorm.DB) PostRepository {
+func NewPostMysqlRepository(db gorm.DB) PostRepositoryInterface {
 	return postMysqlRepository{db: db}
 }
 

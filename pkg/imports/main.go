@@ -18,7 +18,7 @@ var flagSet flag.FlagSet
 
 func NewImportsAnalyzer() *analysis.Analyzer {
 	return &analysis.Analyzer{
-		Name:  "architecture",
+		Name:  "arch",
 		Doc:   "check don't forget document endpoints",
 		Run:   run,
 		Flags: flagSet,
@@ -72,12 +72,10 @@ func checkRepositoryImports(file *ast.File, pass *analysis.Pass) {
 }
 
 func checkInterfacesImports(file *ast.File, pass *analysis.Pass) {
-
 	fileModule := checkModuleName(file, pass)
 
 	for _, im := range file.Imports {
 		if im.Path.Value != "\"github.com/gin-gonic/gin\"" && im.Path.Value != "\"net/http\"" {
-
 			importPath := strings.Split(im.Path.Value, "/")
 			if len(importPath) > 2 && importPath[0] == "\"hoge" && importPath[2] != fileModule {
 				pass.Report(
@@ -98,7 +96,6 @@ func checkModuleName(file *ast.File, pass *analysis.Pass) string {
 }
 
 func checkNotInterModulesRelationship(file *ast.File, pass *analysis.Pass) {
-
 	filePath := pass.Fset.Position(file.Package).Filename
 
 	if strings.Contains(filePath, "/backend_session/cmd/") {

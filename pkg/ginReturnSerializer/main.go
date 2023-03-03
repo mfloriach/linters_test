@@ -9,7 +9,7 @@ import (
 
 const (
 	ReturnJSON             = "you must return a JSON object"
-	ReturnObjectSerializer = "must return and object from serializer"
+	ReturnObjectSerializer = "must return and object from serializer See: https://disaev.me/p/writing-useful-go-analysis-linter/"
 )
 
 //nolint:gochecknoglobals
@@ -54,7 +54,18 @@ func run(pass *analysis.Pass) (interface{}, error) {
 					pass.Report(
 						analysis.Diagnostic{
 							Pos:     function.Pos(),
+							End:     function.End(),
 							Message: ReturnObjectSerializer,
+							SuggestedFixes: []analysis.SuggestedFix{
+								{
+									Message: "See: ",
+									TextEdits: []analysis.TextEdit{{
+										Pos:     function.Pos(),
+										End:     function.End(),
+										NewText: []byte("https://disaev.me/p/writing-useful-go-analysis-linter/"),
+									}},
+								},
+							},
 						},
 					)
 				}
@@ -65,7 +76,18 @@ func run(pass *analysis.Pass) (interface{}, error) {
 					pass.Report(
 						analysis.Diagnostic{
 							Pos:     function.Pos(),
+							End:     function.End(),
 							Message: ReturnObjectSerializer,
+							SuggestedFixes: []analysis.SuggestedFix{
+								{
+									Message: "See: ",
+									TextEdits: []analysis.TextEdit{{
+										Pos:     function.Pos(),
+										End:     function.End(),
+										NewText: []byte("https://disaev.me/p/writing-useful-go-analysis-linter/"),
+									}},
+								},
+							},
 						},
 					)
 				}

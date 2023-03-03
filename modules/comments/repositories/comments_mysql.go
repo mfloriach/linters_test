@@ -10,7 +10,7 @@ type commentsMysqlRepository struct {
 	db gorm.DB
 }
 
-func NewCommentsMysqlRepository(db gorm.DB) CommentsRepository {
+func NewCommentsMysqlRepository(db gorm.DB) CommentsRepositoryInterface {
 	return commentsMysqlRepository{db: db}
 }
 

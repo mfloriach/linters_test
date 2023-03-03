@@ -9,10 +9,12 @@ import (
 	"gorm.io/gorm"
 )
 
-// Allow conection to this module via gin restfull API
+// Allow connection to this module via gin restfull API
 func GinServer(r *gin.Engine, db gorm.DB) {
 	commentService := dependencyInjection(db)
-	interfaces.NewCommentsController(r, commentService)
+	if err := interfaces.NewCommentsController(r, commentService); err != nil {
+		panic(err)
+	}
 }
 
 // Allow connection to this module via grpc protobuffers
