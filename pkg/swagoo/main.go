@@ -12,7 +12,7 @@ import (
 var flagSet flag.FlagSet
 
 const (
-	SwagooReport = "should be swagger documented https://pkg.go.dev/golang.org/x/tools@v0.6.0/go/analysis#RelatedInformation.Message"
+	SwagooReport = "should be swagger documented See: https://github.com/mfloriach/linters_test/tree/main/pkg/swagoo"
 )
 
 // conditions to trigger the linter

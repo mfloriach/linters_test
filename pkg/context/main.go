@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	ContextReport = "first parameter should be context"
+	ContextReport = "first parameter should be context See: https://github.com/mfloriach/linters_test/tree/main/pkg/context"
 )
 
 //nolint:gochecknoglobals

@@ -8,8 +8,8 @@ import (
 )
 
 const (
-	ReturnJSON             = "you must return a JSON object"
-	ReturnObjectSerializer = "must return and object from serializer See: https://disaev.me/p/writing-useful-go-analysis-linter/"
+	ReturnJSON             = "you must return a JSON object https://github.com/mfloriach/linters_test/tree/main/pkg/ginReturnSerializer"
+	ReturnObjectSerializer = "must return and object from serializer See: https://github.com/mfloriach/linters_test/tree/main/pkg/ginReturnSerializer"
 )
 
 //nolint:gochecknoglobals

@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	InterfacesMusTBeChecked = "interfaces must be checked"
+	InterfacesMusTBeChecked = "interfaces must be checked See: https://github.com/mfloriach/linters_test/tree/main/pkg/forceNotNil"
 )
 
 //nolint:gochecknoglobals
