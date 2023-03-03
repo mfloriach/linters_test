@@ -1,9 +1,9 @@
 linters-settings:
-  # custom:
-  #   architecture:
-  #     path: ./plugins/arch.so
-  #     description: Architecture linter for custome projects
-  #     original-url: github.com/golangci/example-linter
+  custom:
+    monsterlab:
+      path: ./plugins/arch.so
+      description: Architecture linter for custome projects
+      original-url: github.com/golangci/example-linter
   errcheck:
     check-type-assertions: true
   goconst:
@@ -27,42 +27,42 @@ linters-settings:
 linters:
   disable-all: true
   enable:
-    #- architecture
-    - bodyclose
-    - deadcode
-    - depguard
-    - dogsled
-    - dupl
-    - errcheck
-    - exportloopref
-    - exhaustive
-    - goconst
-    - gocritic
-    - gofmt
-    - goimports
-    - gomnd
-    - gocyclo
-    - gosec
-    - gosimple
-    - govet
-    - ineffassign
-    - misspell
-    - nolintlint
-    - nakedret
-    - prealloc
-    - predeclared
-    - revive
-    - staticcheck
-    - structcheck
-    - stylecheck
-    - thelper
-    - tparallel
+    - monsterlab
+    # - bodyclose
+    # - deadcode
+    # - depguard
+    # - dogsled
+    # - dupl
+    # - errcheck
+    # - exportloopref
+    # - exhaustive
+    # - goconst
+    # - gocritic
+    # - gofmt
+    # - goimports
+    # - gomnd
+    # - gocyclo
+    # - gosec
+    # - gosimple
+    # - govet
+    # - ineffassign
+    # - misspell
+    # - nolintlint
+    # - nakedret
+    # - prealloc
+    # - predeclared
+    # - revive
+    # - staticcheck
+    # - structcheck
+    # - stylecheck
+    # - thelper
+    # - tparallel
     - typecheck
-    - unconvert
-    - unparam
-    - varcheck
-    - whitespace
-    - wsl
+    # - unconvert
+    # - unparam
+    # - varcheck
+    # - whitespace
+    # - wsl
   fast: true
 
 issues:
@@ -78,8 +78,7 @@ run:
   tests: false
   issues-exit-code: 2
   skip-files:
-    - ".*\\.my\\.go$"
-    - lib/bad.go
+    - "pkg/*.go"
   modules-download-mode: readonly
   allow-parallel-runners: false
   go: '1.19'

@@ -14,10 +14,6 @@ type commentsService struct {
 }
 
 func NewCommentsService(commentsRepo repositories.CommentsRepositoryInterface) CommentsServiceInterface {
-	if commentsRepo == nil {
-		panic("sdfdsfdsfds")
-	}
-
 	return commentsService{commentsRepo: commentsRepo}
 }
 

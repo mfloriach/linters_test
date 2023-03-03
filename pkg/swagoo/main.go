@@ -12,7 +12,7 @@ import (
 var flagSet flag.FlagSet
 
 const (
-	SwagooReport = "should be swagger documented See: https://github.com/mfloriach/linters_test/tree/main/pkg/swagoo"
+	SwagooReport = "should allways document your endpoints See: https://github.com/mfloriach/linters_test/tree/main/pkg/swagoo"
 )
 
 // conditions to trigger the linter
