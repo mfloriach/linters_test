@@ -16,4 +16,4 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          reviewdog -reporter=github-pr-check
+          reviewdog -reporter=github-check
