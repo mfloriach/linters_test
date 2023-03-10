@@ -23,4 +23,4 @@ jobs:
           cd golangci-lint/
           CGO_ENABLED=1 make build 
           mv golangci-lint ${HOME}/.local/bin
-          golanglint run 
+          golangci-lint run 
