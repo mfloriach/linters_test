@@ -22,5 +22,5 @@ jobs:
           git clone https://github.com/golangci/golangci-lint.git
           cd golangci-lint/
           CGO_ENABLED=1 make build 
-          mv golangci-lint ${HOME}/.local/bin
+          mv golangci-lint $HOME/.local/bin
           golangci-lint run 
