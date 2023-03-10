@@ -20,7 +20,7 @@ jobs:
       - name: GolangLint-CI
         run: |
           git clone https://github.com/golangci/golangci-lint.git
-          cd golang golangci-lint/
+          cd golangci-lint/
           CGO_ENABLED=1 make build 
           mv golangci-lint $HOME/bin
           golanglint run 
