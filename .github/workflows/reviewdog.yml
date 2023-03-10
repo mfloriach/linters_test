@@ -10,17 +10,10 @@ jobs:
       - uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: nightly
-      - run: reviewdog -version
-      
-      - name: Install Golang
-        uses: actions/setup-go@v3
-        with:
-          go-version: '1.20'
+      - run: reviewdog -version 
 
-      - name: GolangLint-CI
+      - name: Run reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          git clone https://github.com/golangci/golangci-lint.git
-          cd golangci-lint/
-          CGO_ENABLED=1 make build 
-          mv golangci-lint $HOME/.local/bin
-          golangci-lint run 
+          reviewdog -reporter=github-pr-check
