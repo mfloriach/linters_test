@@ -2,11 +2,7 @@ package services
 
 import (
 	"context"
-	"hoge/modules/comments"
 	"hoge/modules/posts/repositories"
-	"hoge/pkg"
-
-	"github.com/gin-gonic/gin"
 )
 
 type PostServiceInterface interface {
@@ -26,8 +22,8 @@ func NewPostService(postRepo repositories.PostRepositoryInterface) PostServiceIn
 }
 
 func (s postService) GetPosts(ctx context.Context) string {
-	r := gin.Default()
-	db := pkg.GormSqliteSetup("gfdgfd")
-	comments.GinServer(r, db)
 	return s.postRepo.GetPosts(ctx)
+}
+
+func (s postService) GeetPosts() {
 }

@@ -1,0 +1,7 @@
+FROM golang:1.18.0
+
+WORKDIR /usr/app
+
+RUN go install github.com/ofabry/go-callvis@latest
+
+COPY . .

@@ -7,10 +7,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type PostControllerInterface interface {
-	GetPosts(c *gin.Context)
-}
-
 type postController struct {
 	postService services.PostServiceInterface
 }

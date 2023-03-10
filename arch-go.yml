@@ -1,0 +1,24 @@
+version: 1
+threshold:
+  compliance: 100
+  coverage: 100
+dependenciesRules:
+  - package: "**.interfaces.**"
+    shouldNotDependsOn: 
+      internal: 
+        - "**.repositories.**"
+
+  - package: "**.services.**"
+    shouldNotDependsOn: 
+      internal: 
+        - "**.interfaces.**"
+        - "**.serializers.**"
+      external:
+        - "github.com/gin-gonic/gin"
+
+  - package: "**.repositories.**"
+    shouldOnlyDependsOn:
+      external: 
+        - "gorm.io/gorm"
+        - "github.com/gin-gonic/gin"
+

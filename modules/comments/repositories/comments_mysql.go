@@ -15,5 +15,6 @@ func NewCommentsMysqlRepository(db gorm.DB) CommentsRepositoryInterface {
 }
 
 func (r commentsMysqlRepository) GetComments(ctx context.Context) string {
+	r.db.WithContext(ctx).Exec("SELECT * FROM comments")
 	return "posts from mysql db"
 }

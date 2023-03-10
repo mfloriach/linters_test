@@ -1,11 +1,11 @@
 package main
 
 import (
-	force "hoge/pkg/forceNotNil"
+	traceavility "hoge/pkg/modularization"
 
 	"golang.org/x/tools/go/analysis/singlechecker"
 )
 
 func main() {
-	singlechecker.Main(force.NewForceNotNilAnalyzer())
+	singlechecker.Main(traceavility.NewAnalyzer())
 }

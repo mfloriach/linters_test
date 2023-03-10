@@ -7,4 +7,13 @@ services:
       - "8080:8080"
     volumes:
       - .:/usr/src/app
-    command: go run cmd/server.go -b 0.0.0.0
+    command: air
+
+  structure:
+    build: 
+      dockerfile: Dockerfile.gocallvis
+    ports:
+      - "7878:7878"
+    volumes:
+      - .:/usr/app
+    command: go-callvis -ignore hoge/pkg,github.com/gin-gonic/gin cmd/main.go

@@ -1,11 +1,12 @@
 package main
 
 import (
-	"hoge/pkg/context"
+	"hoge/pkg/architecture"
 	force "hoge/pkg/forceNotNil"
 	gin "hoge/pkg/ginReturnSerializer"
-	"hoge/pkg/imports"
-	"hoge/pkg/swagoo"
+	"hoge/pkg/modularization"
+	"hoge/pkg/swaggo"
+	"hoge/pkg/traceavility"
 
 	"golang.org/x/tools/go/analysis"
 )
@@ -15,11 +16,12 @@ type analyzerPlugin struct{}
 // This must be implemented
 func (*analyzerPlugin) GetAnalyzers() []*analysis.Analyzer {
 	return []*analysis.Analyzer{
-		context.NewContextAnalyzer(),
+		traceavility.NewAnalyzer(),
 		force.NewForceNotNilAnalyzer(),
 		gin.NewGinReturnAnalyzer(),
-		imports.NewImportsAnalyzer(),
-		swagoo.NewSwagooAnalyzer(),
+		architecture.NewAnalyzer(),
+		swaggo.NewAnalyzer(),
+		modularization.NewAnalyzer(),
 	}
 }
 
