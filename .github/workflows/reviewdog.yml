@@ -5,13 +5,10 @@ jobs:
     name: runner / golangci-lint
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v1
-
-      - name: Setup reviewdog
-        run: |
-          mkdir -p $HOME/bin && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $HOME/bin
-          echo ::add-path::$HOME/bin
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: nightly
+      - run: reviewdog -version
       
       # - name: Install Golang
       # - uses: actions/setup-go@v3
