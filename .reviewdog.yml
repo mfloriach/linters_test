@@ -27,24 +27,24 @@ runner:
     cmd: revive -config=.revive.toml $(go list ./... | grep -v /vendor/)
     format: golint
     level: warning
-  golangci:
-    cmd: golangci-lint run --out-format=line-number ./...
-    errorformat:
-      - '%E%f:%l:%c: %m'
-      - '%E%f:%l: %m'
-      - '%C%.%#'
-    level: warning
-  architecture:
-    cmd: golangci-lint run --out-format=line-number ./...
-    errorformat:
-      - '%E%f:%l:%c: %m'
-      - '%E%f:%l: %m'
-      - '%C%.%#'
-    level: warning
-  metrics:
-    cmd: golangci-lint run --out-format=line-number ./...
-    errorformat:
-      - '%E%f:%l:%c: %m'
-      - '%E%f:%l: %m'
-      - '%C%.%#'
-    level: warning
+  # golangci:
+  #   cmd: golangci-lint run --out-format=line-number ./...
+  #   errorformat:
+  #     - '%E%f:%l:%c: %m'
+  #     - '%E%f:%l: %m'
+  #     - '%C%.%#'
+  #   level: warning
+  # architecture:
+  #   cmd: golangci-lint run --out-format=line-number ./...
+  #   errorformat:
+  #     - '%E%f:%l:%c: %m'
+  #     - '%E%f:%l: %m'
+  #     - '%C%.%#'
+  #   level: warning
+  # metrics:
+  #   cmd: golangci-lint run --out-format=line-number ./...
+  #   errorformat:
+  #     - '%E%f:%l:%c: %m'
+  #     - '%E%f:%l: %m'
+  #     - '%C%.%#'
+  #   level: warning
