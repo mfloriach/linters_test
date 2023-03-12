@@ -31,9 +31,9 @@ runner:
     cmd: docker run --rm -v :/usr/src/app tools golangci-lint run --out-format=line-number ./...
     errorformat:
       - '%f:%l:c: %m'
-    #   - '%E%f:%l:%c: %m'
-    #   - '%E%f:%l: %m'
-    #   - '%C%.%#'
+      - '%E%f:%l:%c: %m'
+      - '%E%f:%l: %m'
+      - '%C%.%#'
     level: warning
   # architecture:
   #   cmd: golangci-lint run --out-format=line-number ./...
