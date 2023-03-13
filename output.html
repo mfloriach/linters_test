@@ -1,0 +1,1618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPM-Go Results</title>
+    <style>
+        body, html {
+            margin:0; padding: 0;
+            height: 100%;
+        }
+        body {
+			padding: 10px;
+            font-family: Helvetica Neue, Helvetica, Arial;
+            font-size: 14px;
+            color:#333;
+        }
+        .analysis-summary {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .analysis-summary tr { border-bottom: 1px solid #bbb; }
+        .analysis-summary td, .analysis-summary th { padding: 10px; }
+        .analysis-summary tbody { border: 1px solid #bbb; }
+        .analysis-summary td { border-right: 1px solid #bbb; background: #fff4c2; }
+        .analysis-summary th {
+            border: 1px solid #bbb;
+            text-align: center;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .green > td { background: rgb(230,245,208) !important; }
+        .red > td { background: #FCE1E5 !important; }
+        .bold { font-weight: bold; }
+        .right { text-align: right; }
+        .right-spaced { padding-right: 40px !important; }
+		.footer {
+			color: rgba(0,0,0,0.5);
+			text-align: center;
+			margin-top: 10px;
+			height: 50px;
+		}
+		.files {
+			min-width: 200px;
+		}
+		.dependencies {
+			min-width: 400px;
+			max-width: 600px;
+		}
+		.dependants {
+			min-width: 400px;
+			max-width: 600px;
+		}
+		.abstractness {
+			min-width: 200px;
+		}
+		.box {
+			display: inline-block;
+			padding: 10px;
+			vertical-align: top;
+			border: 2px solid #aaa;
+			border-radius: 10px;
+		}
+		.box-title {
+			width: 100%;
+			text-align: center;
+			font-weight: bold;
+		}
+		ul {
+			margin-left: -20px;
+		}
+		.package-details {
+		}
+		.package-details > td {
+			padding-left: 40px;
+			background-color: #fcfcfc;
+			border-bottom: 1px solid #bbb;
+		}
+    </style>
+</head>
+<body>
+<h1>Software Package Metrics for Go - v0.11.1</h1>
+<h2>Full analysis for Module: hoge</h2>
+<div class="results">
+<table class="analysis-summary">
+    <thead>
+    <tr>
+        <th style="width:120px;" rowspan="2">Name</th>
+        <th rowspan="2">Package Path</th>
+        <th rowspan="2" style="width:60px;">Files</th>
+        <th colspan="3">Instability</th>
+        <th colspan="3">Abstractness</th>
+        <th colspan="3">Distance</th>
+    </tr>
+    <tr>
+        <th style="width:120px;">C<sub>Afferent</sub></th>
+        <th style="width:120px;">C<sub>Efferent</sub></th>
+        <th style="width:120px;">Instability</th>
+        <th style="width:120px;">N<sub>Abstractions</sub></th>
+        <th style="width:120px;">N<sub>Implementations</sub></th>
+        <th style="width:120px;">Abstractness</th>
+        <th style="width:120px;">Distance</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <tr class="green" onClick="javasript:toggleDetails('hoge\/cmd-details')">
+        <td class="">main</td>
+        <td class="">hoge/cmd</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">3</td>
+        <td class="bold right right-spaced">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">3</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+    </tr>
+	<tr id="hoge/cmd-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/cmd</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/modules/comments</li>
+							
+							<li>hoge/modules/posts</li>
+							
+							<li>hoge/pkg</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>github.com/gin-gonic/gin</li>
+							
+							<li>gorm.io/gorm</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>3</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="green" onClick="javasript:toggleDetails('hoge\/cmd\/linter-details')">
+        <td class="">main</td>
+        <td class="">hoge/cmd/linter</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="bold right right-spaced">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+    </tr>
+	<tr id="hoge/cmd/linter-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/cmd/linter</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/pkg/modularization</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>golang.org/x/tools/go/analysis/singlechecker</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/comments-details')">
+        <td class="">comments</td>
+        <td class="">hoge/modules/comments</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">3</td>
+        <td class="bold right right-spaced">0.75</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">3</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="bold right right-spaced">0.25</td>
+    </tr>
+	<tr id="hoge/modules/comments-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/comments</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/modules/comments/interfaces</li>
+							
+							<li>hoge/modules/comments/repositories</li>
+							
+							<li>hoge/modules/comments/services</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>github.com/gin-gonic/gin</li>
+							
+							<li>gorm.io/gorm</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/comments</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>3</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/comments\/interfaces-details')">
+        <td class="">interfaces</td>
+        <td class="">hoge/modules/comments/interfaces</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">2</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.5</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.33</td>
+        <td class="bold right right-spaced">0.17</td>
+    </tr>
+	<tr id="hoge/modules/comments/interfaces-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/comments/interfaces</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>gin.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/modules/comments/serializers</li>
+							
+							<li>hoge/modules/comments/services</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>github.com/gin-gonic/gin</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>errors</li>
+							
+							<li>net/http</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/comments</li>
+					
+					<li>hoge/modules/comments/interfaces</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>1</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>1</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/comments\/repositories-details')">
+        <td class="">repositories</td>
+        <td class="">hoge/modules/comments/repositories</td>
+        <td class="right">2</td>
+        <td class="right right-spaced">4</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">2</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.5</td>
+        <td class="bold right right-spaced">0.5</td>
+    </tr>
+	<tr id="hoge/modules/comments/repositories-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/comments/repositories</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>comments.go</li>
+					
+					<li>comments_mysql.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>gorm.io/gorm</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>context</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/comments</li>
+					
+					<li>hoge/modules/comments/interfaces</li>
+					
+					<li>hoge/modules/comments/services</li>
+					
+					<li>hoge/modules/comments/repositories</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>1</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>1</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/comments\/serializers-details')">
+        <td class="">serializers</td>
+        <td class="">hoge/modules/comments/serializers</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">3</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="bold right right-spaced">0.5</td>
+        <td class="bold right right-spaced">0.5</td>
+    </tr>
+	<tr id="hoge/modules/comments/serializers-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/comments/serializers</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>comment_serializer.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>time</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/comments</li>
+					
+					<li>hoge/modules/comments/interfaces</li>
+					
+					<li>hoge/modules/comments/serializers</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>1</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/comments\/services-details')">
+        <td class="">services</td>
+        <td class="">hoge/modules/comments/services</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">3</td>
+        <td class="right right-spaced">1</td>
+        <td class="bold right right-spaced">0.25</td>
+        <td class="right right-spaced">2</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.5</td>
+        <td class="bold right right-spaced">0.25</td>
+    </tr>
+	<tr id="hoge/modules/comments/services-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/comments/services</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>comment_service.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/modules/comments/repositories</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>context</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/comments</li>
+					
+					<li>hoge/modules/comments/interfaces</li>
+					
+					<li>hoge/modules/comments/services</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>1</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>1</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/posts-details')">
+        <td class="">posts</td>
+        <td class="">hoge/modules/posts</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">3</td>
+        <td class="bold right right-spaced">0.75</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">3</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="bold right right-spaced">0.25</td>
+    </tr>
+	<tr id="hoge/modules/posts-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/posts</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/modules/posts/interfaces</li>
+							
+							<li>hoge/modules/posts/repositories</li>
+							
+							<li>hoge/modules/posts/services</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>github.com/gin-gonic/gin</li>
+							
+							<li>gorm.io/gorm</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/posts</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>3</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/posts\/interfaces-details')">
+        <td class="">interfaces</td>
+        <td class="">hoge/modules/posts/interfaces</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">2</td>
+        <td class="right right-spaced">1</td>
+        <td class="bold right right-spaced">0.33</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.33</td>
+        <td class="bold right right-spaced">0.34</td>
+    </tr>
+	<tr id="hoge/modules/posts/interfaces-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/posts/interfaces</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>gin.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/modules/posts/services</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>github.com/gin-gonic/gin</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>net/http</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/posts</li>
+					
+					<li>hoge/modules/posts/interfaces</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>1</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>1</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/posts\/repositories-details')">
+        <td class="">repositories</td>
+        <td class="">hoge/modules/posts/repositories</td>
+        <td class="right">2</td>
+        <td class="right right-spaced">4</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">2</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.5</td>
+        <td class="bold right right-spaced">0.5</td>
+    </tr>
+	<tr id="hoge/modules/posts/repositories-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/posts/repositories</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>post.go</li>
+					
+					<li>post_mysql.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>gorm.io/gorm</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>context</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/posts</li>
+					
+					<li>hoge/modules/posts/interfaces</li>
+					
+					<li>hoge/modules/posts/services</li>
+					
+					<li>hoge/modules/posts/repositories</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>1</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>1</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/modules\/posts\/services-details')">
+        <td class="">services</td>
+        <td class="">hoge/modules/posts/services</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">3</td>
+        <td class="right right-spaced">1</td>
+        <td class="bold right right-spaced">0.25</td>
+        <td class="right right-spaced">2</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.5</td>
+        <td class="bold right right-spaced">0.25</td>
+    </tr>
+	<tr id="hoge/modules/posts/services-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/modules/posts/services</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>posts_service.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/modules/posts/repositories</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>context</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/modules/posts</li>
+					
+					<li>hoge/modules/posts/interfaces</li>
+					
+					<li>hoge/modules/posts/services</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>1</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>1</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="red" onClick="javasript:toggleDetails('hoge\/pkg-details')">
+        <td class="">pkg</td>
+        <td class="">hoge/pkg</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="bold right right-spaced">1</td>
+    </tr>
+	<tr id="hoge/pkg-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/pkg</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>gorm_sqlite.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>gorm.io/driver/sqlite</li>
+							
+							<li>gorm.io/gorm</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/pkg</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>1</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/pkg\/architecture-details')">
+        <td class="">architecture</td>
+        <td class="">hoge/pkg/architecture</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">7</td>
+        <td class="bold right right-spaced">0.13</td>
+        <td class="bold right right-spaced">0.13</td>
+    </tr>
+	<tr id="hoge/pkg/architecture-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/pkg/architecture</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>golang.org/x/tools/go/analysis</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>flag</li>
+							
+							<li>go/ast</li>
+							
+							<li>strings</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>7</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="red" onClick="javasript:toggleDetails('hoge\/pkg\/forceNotNil-details')">
+        <td class="">force</td>
+        <td class="">hoge/pkg/forceNotNil</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.33</td>
+        <td class="bold right right-spaced">0.67</td>
+    </tr>
+	<tr id="hoge/pkg/forceNotNil-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/pkg/forceNotNil</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>golang.org/x/tools/go/analysis</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>flag</li>
+							
+							<li>go/ast</li>
+							
+							<li>strings</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/pkg/forceNotNil</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>2</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="red" onClick="javasript:toggleDetails('hoge\/pkg\/ginReturnSerializer-details')">
+        <td class="">gin</td>
+        <td class="">hoge/pkg/ginReturnSerializer</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.33</td>
+        <td class="bold right right-spaced">0.67</td>
+    </tr>
+	<tr id="hoge/pkg/ginReturnSerializer-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/pkg/ginReturnSerializer</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>golang.org/x/tools/go/analysis</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>flag</li>
+							
+							<li>go/ast</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/pkg/ginReturnSerializer</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>2</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="red" onClick="javasript:toggleDetails('hoge\/pkg\/modularization-details')">
+        <td class="">modularization</td>
+        <td class="">hoge/pkg/modularization</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">2</td>
+        <td class="bold right right-spaced">0.33</td>
+        <td class="bold right right-spaced">0.67</td>
+    </tr>
+	<tr id="hoge/pkg/modularization-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/pkg/modularization</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>golang.org/x/tools/go/analysis</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>flag</li>
+							
+							<li>strings</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/pkg/modularization</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>2</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="red" onClick="javasript:toggleDetails('hoge\/pkg\/swaggo-details')">
+        <td class="">swaggo</td>
+        <td class="">hoge/pkg/swaggo</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">3</td>
+        <td class="bold right right-spaced">0.25</td>
+        <td class="bold right right-spaced">0.75</td>
+    </tr>
+	<tr id="hoge/pkg/swaggo-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/pkg/swaggo</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>golang.org/x/tools/go/analysis</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>flag</li>
+							
+							<li>go/ast</li>
+							
+							<li>strings</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/pkg/swaggo</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>3</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="red" onClick="javasript:toggleDetails('hoge\/pkg\/traceavility-details')">
+        <td class="">traceavility</td>
+        <td class="">hoge/pkg/traceavility</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="bold right right-spaced">0</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">6</td>
+        <td class="bold right right-spaced">0.14</td>
+        <td class="bold right right-spaced">0.86</td>
+    </tr>
+	<tr id="hoge/pkg/traceavility-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/pkg/traceavility</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>main.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>golang.org/x/tools/go/analysis</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+							<li>flag</li>
+							
+							<li>go/ast</li>
+							
+							<li>strings</li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<div class="box dependants">
+				<div class="box-title">Dependants</div>
+				<ul>
+					
+					<li>hoge/pkg/traceavility</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>0</li>
+					<li><b>Functions: </b>6</li>
+					<li><b>Interfaces: </b>1</li>
+					<li><b>Structs: </b>0</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    <tr class="" onClick="javasript:toggleDetails('hoge\/plugins-details')">
+        <td class="">main</td>
+        <td class="">hoge/plugins</td>
+        <td class="right">1</td>
+        <td class="right right-spaced">0</td>
+        <td class="right right-spaced">5</td>
+        <td class="bold right right-spaced">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="right right-spaced">1</td>
+        <td class="bold right right-spaced">0.5</td>
+        <td class="bold right right-spaced">0.5</td>
+    </tr>
+	<tr id="hoge/plugins-details" class="package-details" style="display:none;">
+		<td colspan="10">
+			<div style="margin-bottom: 15px;"><b>Package details for: </b>hoge/plugins</div>
+			<div class="box files">
+				<div class="box-title">Files</div>
+				<ul>
+					
+					<li>arch.go</li>
+					
+				</ul>
+			</div>
+			
+			<div class="box dependencies">
+				<div class="box-title">Dependencies</div>
+				<ul>
+					<li>
+						<b>Internals</b>
+						<ul>
+							
+							<li>hoge/pkg/forceNotNil</li>
+							
+							<li>hoge/pkg/ginReturnSerializer</li>
+							
+							<li>hoge/pkg/modularization</li>
+							
+							<li>hoge/pkg/swaggo</li>
+							
+							<li>hoge/pkg/traceavility</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Externals</b>
+						<ul>
+							
+							<li>golang.org/x/tools/go/analysis</li>
+							
+						</ul>
+					</li>
+					<li>
+						<b>Standard</b>
+						<ul>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="box abstractness">
+				<div class="box-title">Abstractness Details</div>
+				<ul>
+					<li><b>Methods: </b>1</li>
+					<li><b>Functions: </b>0</li>
+					<li><b>Interfaces: </b>0</li>
+					<li><b>Structs: </b>1</li>
+				</ul>
+			</div>
+			
+		</td>
+	</tr>
+    
+    </tbody>
+</table>
+</div>
+<div class="footer">
+	Report generated by
+	<a href="https://pkg.go.dev/github.com/fdaines/spm-go" target="_blank">SPM-Go</a>
+	at Mon Mar 13 2023 at 01:10:50
+</div>
+<script language="javascript">
+function toggleDetails(element) {
+	var target = document.getElementById(element)
+	if(target.style.display == "none") {
+		document.getElementById(element).style.display = "contents";
+	} else {
+		document.getElementById(element).style.display = "none";
+	}
+}
+</script>
+</body>
+</html>
