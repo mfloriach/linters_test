@@ -15,6 +15,13 @@ jobs:
       - name: Create testing image
         run: make install
 
+      - name: complexity analysis
+        uses: shoooooman/go-complexity-analysis-action@v1
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          cycloover: 5
+          maintunder: 30
+
       - name: Calculare coupling
         run: |
           make coupling
