@@ -27,12 +27,14 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
+          destination_dir: coupling
           publish_dir: ./spm-go
 
       - name: Deploy architecture
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
+          destination_dir: architecture
           publish_dir: ./.arch-go
 
 
