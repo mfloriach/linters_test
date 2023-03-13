@@ -32,6 +32,18 @@ func NewCommentsController(router *gin.Engine, commentsService services.Comments
 	return nil
 }
 
+// ShowAccount godoc
+// @Summary      Show an account
+// @Description  get string by ID
+// @Tags         accounts
+// @Accept       json
+// @Produce      json
+// @Param        id   path      int  true  "Account ID"
+// @Success      200  {object}  model.Account
+// @Failure      400  {object}  httputil.HTTPError
+// @Failure      404  {object}  httputil.HTTPError
+// @Failure      500  {object}  httputil.HTTPError
+// @Router       /accounts/{id} [get]
 func (p commentsController) GetComments(c *gin.Context) {
 	comments := p.commentsService.GetComments(c)
 

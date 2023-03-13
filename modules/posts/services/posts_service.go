@@ -24,6 +24,3 @@ func NewPostService(postRepo repositories.PostRepositoryInterface) PostServiceIn
 func (s postService) GetPosts(ctx context.Context) string {
 	return s.postRepo.GetPosts(ctx)
 }
-
-func (s postService) GeetPosts() {
-}
