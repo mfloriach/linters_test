@@ -19,9 +19,9 @@ jobs:
         run: |
           make coupling
 
-      # - name: architecture compliance
-      #   run: |
-      #     make arch
+      - name: architecture compliance
+        run: |
+          make arch
 
       - name: Deploy coupling
         uses: peaceiris/actions-gh-pages@v3
@@ -29,11 +29,11 @@ jobs:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./spm-go
 
-      # - name: Deploy architecture
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.TOKEN }}
-      #     publish_dir: ./.arch-go
+      - name: Deploy architecture
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./.arch-go
 
 
       # - name: Run reviewdog
