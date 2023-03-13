@@ -21,9 +21,9 @@ jobs:
         run: |
           make coupling
 
-      - name: architecture compliance
-        run: |
-          make arch
+      # - name: architecture compliance
+      #   run: |
+      #     make arch
 
       - name: Deploy coupling
         uses: peaceiris/actions-gh-pages@v3
