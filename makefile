@@ -9,10 +9,10 @@ custom:
 	golangci-lint cache clean
 
 coupling:
-	docker run --rm -v $(pwd):/usr/src/app tools spm-go all --html cmd/main.go
+	docker run --rm -v $(PWD):/usr/src/app tools spm-go all --html cmd/main.go
 
 arch:
-	docker run --rm -v $(pwd):/usr/src/app tools arch-go --html
+	docker run --rm -v $(PWD):/usr/src/app tools arch-go --html
 
 linter:
 	docker run --rm -v $(pwd):/usr/src/app tools golangci-lint run
