@@ -3,18 +3,18 @@ package interfaces
 import (
 	"errors"
 	"hoge/modules/comments/serializers"
-	"hoge/modules/comments/services"
+	"hoge/modules/comments/shared"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 type commentsController struct {
-	commentsService services.CommentsServiceInterface
+	commentsService shared.CommentsServiceInterface
 }
 
 // NewCommentsController  constructor
-func NewCommentsController(router *gin.Engine, commentsService services.CommentsServiceInterface) error {
+func NewCommentsController(router *gin.Engine, commentsService shared.CommentsServiceInterface) error {
 	if commentsService == nil {
 		return errors.New("commentsService instance can not be null")
 	}

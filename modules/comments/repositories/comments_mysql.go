@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"context"
+	"hoge/modules/comments/shared"
 
 	"gorm.io/gorm"
 )
@@ -10,7 +11,7 @@ type commentsMysqlRepository struct {
 	db gorm.DB
 }
 
-func NewCommentsMysqlRepository(db gorm.DB) CommentsRepositoryInterface {
+func NewCommentsMysqlRepository(db gorm.DB) shared.CommentsRepositoryInterface {
 	return commentsMysqlRepository{db: db}
 }
 

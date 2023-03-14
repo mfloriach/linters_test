@@ -17,3 +17,6 @@ arch:
 linter:
 	docker run --rm -v $(pwd):/usr/src/app tools golangci-lint run
 
+test:
+	docker run --rm -v $(pwd):/usr/src/app tools go run cmd/linter/main.go ./modules/...
+

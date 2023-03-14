@@ -1,17 +1,17 @@
 package interfaces
 
 import (
-	"hoge/modules/posts/services"
+	"hoge/modules/posts/shared"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 type postController struct {
-	postService services.PostServiceInterface
+	postService shared.PostServiceInterface
 }
 
-func NewPostController(router *gin.Engine, postService services.PostServiceInterface) {
+func NewPostController(router *gin.Engine, postService shared.PostServiceInterface) {
 	if postService == nil {
 		panic("please pass the postService")
 	}

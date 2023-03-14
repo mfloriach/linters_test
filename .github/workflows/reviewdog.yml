@@ -15,12 +15,11 @@ jobs:
       - name: Create testing image
         run: make install
 
-      - name: complexity analysis
-        uses: shoooooman/go-complexity-analysis-action@v1
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          cycloover: 5
-          maintunder: 30
+      - name: Run reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          reviewdog -reporter=github-check
 
       - name: Calculare coupling
         run: |
@@ -46,8 +45,4 @@ jobs:
           keep_files: true
           enable_jekyll: true
 
-      # - name: Run reviewdog
-      #   env:
-      #     REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
-      #   run: |
-      #     reviewdog -reporter=github-check
+      
