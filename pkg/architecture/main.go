@@ -19,7 +19,7 @@ var flagSet flag.FlagSet
 func NewAnalyzer() *analysis.Analyzer {
 	return &analysis.Analyzer{
 		Name:  "architecture",
-		Doc:   "should follows architecture compliance",
+		Doc:   "should follows architecture complaince",
 		Run:   run,
 		Flags: flagSet,
 	}
