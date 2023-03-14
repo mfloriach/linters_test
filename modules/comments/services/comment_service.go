@@ -2,18 +2,14 @@ package services
 
 import (
 	"context"
-	"hoge/modules/comments/repositories"
+	"hoge/modules/comments/shared"
 )
 
-type CommentsServiceInterface interface {
-	GetComments(ctx context.Context) string
-}
-
 type commentsService struct {
-	commentsRepo repositories.CommentsRepositoryInterface
+	commentsRepo shared.CommentsRepositoryInterface
 }
 
-func NewCommentsService(commentsRepo repositories.CommentsRepositoryInterface) CommentsServiceInterface {
+func NewCommentsService(commentsRepo shared.CommentsRepositoryInterface) shared.CommentsServiceInterface {
 	if commentsRepo == nil {
 		panic("commentRepo can not be nil")
 	}

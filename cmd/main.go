@@ -7,8 +7,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
-
-	"hoge/modules/comments/services"
 )
 
 const dbPath = "test.db"
@@ -19,8 +17,6 @@ var modes = map[string]func(db gorm.DB){
 }
 
 func main() {
-
-	services.NewCommentsService(nil)
 	db := pkg.GormSqliteSetup(dbPath)
 
 	if startServer, ok := modes["gin"]; ok {
@@ -39,6 +35,4 @@ func ginServer(db gorm.DB) {
 	r.Run()
 }
 
-func grpcServer(db gorm.DB) {
-
-}
+func grpcServer(db gorm.DB) {}

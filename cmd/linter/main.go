@@ -1,11 +1,11 @@
 package main
 
 import (
-	traceavility "hoge/pkg/modularization"
+	"hoge/pkg/architecture"
 
 	"golang.org/x/tools/go/analysis/singlechecker"
 )
 
 func main() {
-	singlechecker.Main(traceavility.NewAnalyzer())
+	singlechecker.Main(architecture.NewAnalyzer())
 }

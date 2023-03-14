@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"context"
+	"hoge/modules/posts/shared"
 
 	"gorm.io/gorm"
 )
@@ -10,7 +11,7 @@ type postMysqlRepository struct {
 	db gorm.DB
 }
 
-func NewPostMysqlRepository(db gorm.DB) PostRepositoryInterface {
+func NewPostMysqlRepository(db gorm.DB) shared.PostRepositoryInterface {
 	return postMysqlRepository{db: db}
 }
 

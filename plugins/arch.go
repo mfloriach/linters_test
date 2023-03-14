@@ -6,6 +6,7 @@ import (
 	gin "hoge/pkg/ginReturnSerializer"
 	"hoge/pkg/modularization"
 	"hoge/pkg/swaggo"
+
 	"hoge/pkg/traceavility"
 
 	"golang.org/x/tools/go/analysis"
