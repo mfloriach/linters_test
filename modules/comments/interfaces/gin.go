@@ -4,6 +4,7 @@ import (
 	"errors"
 	"hoge/modules/comments/serializers"
 	"hoge/modules/comments/shared"
+	"hoge/modules/posts/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -46,6 +47,8 @@ func NewCommentsController(router *gin.Engine, commentsService shared.CommentsSe
 // @Router       /accounts/{id} [get]
 func (p commentsController) GetComments(c *gin.Context) {
 	comments := p.commentsService.GetComments(c)
+
+	services.NewPostService(nil)
 
 	c.JSON(http.StatusOK, gin.H{
 		"data": serializers.CommentsSerialize(comments),

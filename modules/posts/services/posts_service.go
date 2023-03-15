@@ -5,15 +5,11 @@ import (
 	"hoge/modules/posts/shared"
 )
 
-type PostServiceInterface interface {
-	GetPosts(ctx context.Context) string
-}
-
 type postService struct {
 	postRepo shared.PostRepositoryInterface
 }
 
-func NewPostService(postRepo shared.PostRepositoryInterface) PostServiceInterface {
+func NewPostService(postRepo shared.PostRepositoryInterface) shared.PostServiceInterface {
 	if postRepo == nil {
 		panic("sdfdsfdsfds")
 	}

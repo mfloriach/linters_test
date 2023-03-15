@@ -9,8 +9,9 @@ import (
 )
 
 const (
-	NotAllow       = "forbidden to import this library in this module"
-	NotAllowModule = "forbidden to import other internal modules to this module"
+	RepositoryPattern = "should follow the repository pattern See: https://github.com/mfloriach/linters_test/tree/development/pkg/architecture"
+	NotAllow          = "forbidden to import this library in this module See: https://github.com/mfloriach/linters_test/tree/development/pkg/architecture"
+	NotAllowModule    = "forbidden to import other internal modules to this module See: https://github.com/mfloriach/linters_test/tree/development/pkg/architecture"
 )
 
 //nolint:gochecknoglobals
@@ -47,7 +48,16 @@ func run(pass *analysis.Pass) (interface{}, error) {
 
 func checkServiceImports(file *ast.File, pass *analysis.Pass) {
 	for _, im := range file.Imports {
-		if im.Path.Value == "\"gorm.io/gorm\"" || im.Path.Value == "\"github.com/gin-gonic/gin\"" {
+		if im.Path.Value == "\"gorm.io/gorm\"" {
+			pass.Report(
+				analysis.Diagnostic{
+					Pos:     im.Pos(),
+					Message: RepositoryPattern,
+				},
+			)
+		}
+
+		if im.Path.Value == "\"github.com/gin-gonic/gin\"" {
 			pass.Report(
 				analysis.Diagnostic{
 					Pos:     im.Pos(),
@@ -75,6 +85,15 @@ func checkInterfacesImports(file *ast.File, pass *analysis.Pass) {
 	fileModule := checkModuleName(file, pass)
 
 	for _, im := range file.Imports {
+		if im.Path.Value == "\"gorm.io/gorm\"" {
+			pass.Report(
+				analysis.Diagnostic{
+					Pos:     im.Pos(),
+					Message: RepositoryPattern,
+				},
+			)
+		}
+
 		if im.Path.Value != "\"github.com/gin-gonic/gin\"" && im.Path.Value != "\"net/http\"" && !strings.Contains(im.Path.Value, "/shared") {
 			importPath := strings.Split(im.Path.Value, "/")
 			if len(importPath) > 2 && importPath[0] == "\"hoge" && importPath[2] != fileModule {
