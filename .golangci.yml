@@ -1,6 +1,6 @@
 linters-settings:
   custom:
-    ml:
+    monsterlab:
       path: ./plugins/arch.so
       description: Architecture linter for custome projects
       original-url: github.com/golangci/example-linter

@@ -1,11 +1,13 @@
 package shared
 
-import "context"
+import (
+	"context"
+)
 
 type PostServiceInterface interface {
-	GetPosts(ctx context.Context) string
+	GetPosts(ctx context.Context) ([]PostEntity, error)
 }
 
 type PostRepositoryInterface interface {
-	GetPosts(ctx context.Context) string
+	GetPosts(ctx context.Context) ([]PostEntity, error)
 }

@@ -1,19 +1,18 @@
 package serializers
 
 import (
-	"fmt"
 	"hoge/modules/comments/shared"
 	"hoge/pkg"
 )
 
 type comment struct {
 	ID      string
-	Title   string
+	PostID  string
+	UserID  string
 	Content string
 }
 
-func CommentsSerialize(comments []shared.PostEntity) []comment {
-	fmt.Println(len(comments))
+func CommentsSerialize(comments []shared.CommentEntity) []comment {
 	res := make([]comment, len(comments))
 
 	for i, c := range comments {
@@ -23,10 +22,11 @@ func CommentsSerialize(comments []shared.PostEntity) []comment {
 	return res
 }
 
-func CommentSerialize(c shared.PostEntity) comment {
+func CommentSerialize(c shared.CommentEntity) comment {
 	return comment{
 		ID:      pkg.HashId(c.ID),
-		Title:   c.Title,
+		PostID:  pkg.HashId(c.PostID),
+		UserID:  pkg.HashId(c.UserID),
 		Content: c.Content,
 	}
 }

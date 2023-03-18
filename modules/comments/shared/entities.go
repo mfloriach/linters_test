@@ -1,7 +1,12 @@
 package shared
 
-type PostEntity struct {
-	ID      int
-	Title   string
+type CommentEntity struct {
+	ID      uint
+	UserID  uint
+	PostID  uint
 	Content string
+}
+
+func (CommentEntity) TableName() string {
+	return "comments"
 }

@@ -17,6 +17,6 @@ func NewPostService(postRepo shared.PostRepositoryInterface) shared.PostServiceI
 	return &postService{postRepo: postRepo}
 }
 
-func (s postService) GetPosts(ctx context.Context) string {
+func (s postService) GetPosts(ctx context.Context) ([]shared.PostEntity, error) {
 	return s.postRepo.GetPosts(ctx)
 }

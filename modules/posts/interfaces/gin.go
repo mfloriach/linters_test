@@ -1,6 +1,7 @@
 package interfaces
 
 import (
+	"hoge/modules/posts/serializers"
 	"hoge/modules/posts/shared"
 	"net/http"
 
@@ -36,9 +37,9 @@ func NewPostController(router *gin.Engine, postService shared.PostServiceInterfa
 // @Failure      500  {object}  httputil.HTTPError
 // @Router       /accounts/{id} [get]
 func (p postController) GetPosts(c *gin.Context) {
-	posts := p.postService.GetPosts(c)
+	posts, _ := p.postService.GetPosts(c)
 
 	c.JSON(http.StatusOK, gin.H{
-		"data": posts,
+		"data": serializers.PostsSerialize(posts),
 	})
 }

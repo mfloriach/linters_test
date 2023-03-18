@@ -15,18 +15,8 @@ func NewCommentsMysqlRepository(db gorm.DB) shared.CommentsRepositoryInterface {
 	return commentsMysqlRepository{db: db}
 }
 
-func (r commentsMysqlRepository) GetComments(ctx context.Context) []shared.PostEntity {
-	r.db.WithContext(ctx).Exec("SELECT * FROM comments")
-	return []shared.PostEntity{
-		{
-			ID:      1,
-			Title:   "post 1",
-			Content: "content 1",
-		},
-		{
-			ID:      2,
-			Title:   "post 2",
-			Content: "content 2",
-		},
-	}
+func (r commentsMysqlRepository) GetComments(ctx context.Context) (comments []shared.CommentEntity, err error) {
+	err = r.db.WithContext(ctx).Find(&comments).Error
+
+	return comments, err
 }

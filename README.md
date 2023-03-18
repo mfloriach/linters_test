@@ -3,9 +3,9 @@
 [![CD/CI](https://github.com/mfloriach/linters_test/actions/workflows/development.yml/badge.svg?branch=development)](https://github.com/mfloriach/linters_test/actions/workflows/development.yml)
 
 Example of how to control mesure and prevent a code base degradation by using:
-- metrics
-- compliance
-- custom linters
+- Metrics
+- Compliance
+- Custom linters
 
 **Note:** this repository is for test purposes therefore is not ready for production.
 
@@ -20,7 +20,7 @@ Example of how to control mesure and prevent a code base degradation by using:
 ## Reports
 [📈 metrics analysis of the module.](https://mfloriach.github.io/linters_test/output.html) 
 
-[📋 architecture compliance report.](https://mfloriach.github.io/linters_test/output.html) 
+[📋 architecture compliance report.](https://mfloriach.github.io/linters_test/report.html) 
 
 ## Installation
 Unfortunality some libraries are mandatory to be compile in the local machine. To avoid that step all command will run in docker container. Start by creating the image.

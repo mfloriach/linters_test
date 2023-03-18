@@ -45,7 +45,7 @@ func NewCommentsController(router *gin.Engine, commentsService shared.CommentsSe
 // @Failure      500  {object}  httputil.HTTPError
 // @Router       /accounts/{id} [get]
 func (p commentsController) GetComments(c *gin.Context) {
-	comments := p.commentsService.GetComments(c)
+	comments, _ := p.commentsService.GetComments(c)
 
 	c.JSON(http.StatusOK, gin.H{
 		"data": serializers.CommentsSerialize(comments),
