@@ -1,13 +1,13 @@
 # Architecture governance
 
-[![CD/CI](https://github.com/mfloriach/linters_test/actions/workflows/reviewdog.yml/badge.svg?branch=development)](https://github.com/mfloriach/linters_test/actions/workflows/reviewdog.yml)
+[![CD/CI](https://github.com/mfloriach/linters_test/actions/workflows/development.yml/badge.svg?branch=development)](https://github.com/mfloriach/linters_test/actions/workflows/development.yml)
 
 Example of how to control mesure and prevent a code base degradation by using:
 - metrics
 - compliance
 - custom linters
 
-**Note:** this repository is for content and linters are not ready for production.
+**Note:** this repository is for test purposes therefore is not ready for production.
 
 ## Architecture definition
 ![architecture](pkg/architecture/arch.png)
@@ -16,8 +16,6 @@ Example of how to control mesure and prevent a code base degradation by using:
 - Multiple interfaces (grpc, restful Api)
 - Repository pattern (multiple database, testing)
 - No connections between modules
-
-
 
 ## Reports
 [📈 metrics analysis of the module.](https://mfloriach.github.io/linters_test/output.html) 

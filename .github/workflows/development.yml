@@ -23,7 +23,7 @@ jobs:
 
       - name: Calculare coupling
         run: |
-          make coupling
+          make metrics
 
       - name: Deploy metrics
         uses: peaceiris/actions-gh-pages@v3
