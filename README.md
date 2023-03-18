@@ -1,5 +1,7 @@
 # Architecture governance
 
+[![CD/CI](https://github.com/mfloriach/linters_test/actions/workflows/reviewdog.yml/badge.svg?branch=development)](https://github.com/mfloriach/linters_test/actions/workflows/reviewdog.yml)
+
 Example of how to control mesure and prevent a code base degradation by using:
 - metrics
 - compliance
@@ -15,7 +17,7 @@ Example of how to control mesure and prevent a code base degradation by using:
 - Repository pattern (multiple database, testing)
 - No connections between modules
 
-![build](https://github.com/mfloriach/linters_test/blob/main/.github/workflows/reviewdog.yml/badge.svg)
+
 
 ## Reports
 [📈 metrics analysis of the module.](https://mfloriach.github.io/linters_test/output.html) 
