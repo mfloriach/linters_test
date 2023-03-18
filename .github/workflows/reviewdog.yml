@@ -15,19 +15,15 @@ jobs:
       - name: Create testing image
         run: make install
 
-      - name: Run reviewdog
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
-        run: |
-          reviewdog -reporter=github-check
+      # - name: Run reviewdog
+      #   env:
+      #     REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
+      #   run: |
+      #     reviewdog -reporter=github-check
 
       - name: Calculare coupling
         run: |
           make coupling
-
-      - name: architecture compliance
-        run: |
-          make arch
 
       - name: Deploy coupling
         uses: peaceiris/actions-gh-pages@v3
@@ -36,6 +32,10 @@ jobs:
           publish_dir: ./spm-go
           keep_files: true
           enable_jekyll: true
+
+      - name: architecture compliance
+        run: |
+          make arch
 
       - name: Deploy architecture
         uses: peaceiris/actions-gh-pages@v3

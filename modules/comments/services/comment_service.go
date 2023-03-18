@@ -17,6 +17,6 @@ func NewCommentsService(commentsRepo shared.CommentsRepositoryInterface) shared.
 	return commentsService{commentsRepo: commentsRepo}
 }
 
-func (u commentsService) GetComments(ctx context.Context) string {
-	return u.commentsRepo.GetComments(nil)
+func (u commentsService) GetComments(ctx context.Context) []shared.PostEntity {
+	return u.commentsRepo.GetComments(ctx)
 }

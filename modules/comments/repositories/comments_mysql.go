@@ -4,7 +4,6 @@ import (
 	"context"
 	"hoge/modules/comments/shared"
 
-	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
@@ -16,8 +15,18 @@ func NewCommentsMysqlRepository(db gorm.DB) shared.CommentsRepositoryInterface {
 	return commentsMysqlRepository{db: db}
 }
 
-func (r commentsMysqlRepository) GetComments(ctx context.Context) string {
+func (r commentsMysqlRepository) GetComments(ctx context.Context) []shared.PostEntity {
 	r.db.WithContext(ctx).Exec("SELECT * FROM comments")
-	gin.Default()
-	return "posts from mysql db"
+	return []shared.PostEntity{
+		{
+			ID:      1,
+			Title:   "post 1",
+			Content: "content 1",
+		},
+		{
+			ID:      2,
+			Title:   "post 2",
+			Content: "content 2",
+		},
+	}
 }

@@ -11,7 +11,7 @@ type postService struct {
 
 func NewPostService(postRepo shared.PostRepositoryInterface) shared.PostServiceInterface {
 	if postRepo == nil {
-		panic("sdfdsfdsfds")
+		panic("post repository can not be nil")
 	}
 
 	return &postService{postRepo: postRepo}

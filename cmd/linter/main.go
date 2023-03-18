@@ -1,11 +1,11 @@
 package main
 
 import (
-	"hoge/pkg/architecture"
+	force "hoge/pkg/forceNotNil"
 
 	"golang.org/x/tools/go/analysis/singlechecker"
 )
 
 func main() {
-	singlechecker.Main(architecture.NewAnalyzer())
+	singlechecker.Main(force.NewAnalyzer())
 }

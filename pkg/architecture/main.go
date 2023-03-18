@@ -10,8 +10,7 @@ import (
 
 const (
 	RepositoryPattern = "should follow the repository pattern See: https://github.com/mfloriach/linters_test/tree/development/pkg/architecture"
-	NotAllow          = "forbidden to import this library in this module See: https://github.com/mfloriach/linters_test/tree/development/pkg/architecture"
-	NotAllowModule    = "forbidden to import other internal modules to this module See: https://github.com/mfloriach/linters_test/tree/development/pkg/architecture"
+	NotAllow          = "should not import this package See: https://github.com/mfloriach/linters_test/tree/development/pkg/architecture"
 )
 
 //nolint:gochecknoglobals
@@ -100,7 +99,7 @@ func checkInterfacesImports(file *ast.File, pass *analysis.Pass) {
 				pass.Report(
 					analysis.Diagnostic{
 						Pos:     im.Pos(),
-						Message: NotAllowModule,
+						Message: NotAllow,
 					},
 				)
 			}
@@ -134,7 +133,7 @@ func checkNotInterModulesRelationship(file *ast.File, pass *analysis.Pass) {
 			pass.Report(
 				analysis.Diagnostic{
 					Pos:     im.Pos(),
-					Message: NotAllowModule,
+					Message: NotAllow,
 				},
 			)
 		}

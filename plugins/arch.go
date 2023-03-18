@@ -18,7 +18,7 @@ type analyzerPlugin struct{}
 func (*analyzerPlugin) GetAnalyzers() []*analysis.Analyzer {
 	return []*analysis.Analyzer{
 		traceavility.NewAnalyzer(),
-		force.NewForceNotNilAnalyzer(),
+		force.NewAnalyzer(),
 		gin.NewGinReturnAnalyzer(),
 		architecture.NewAnalyzer(),
 		swaggo.NewAnalyzer(),

@@ -15,7 +15,7 @@ const (
 //nolint:gochecknoglobals
 var flagSet flag.FlagSet
 
-func NewForceNotNilAnalyzer() *analysis.Analyzer {
+func NewAnalyzer() *analysis.Analyzer {
 	return &analysis.Analyzer{
 		Name:  "not_nil",
 		Doc:   "injected dependencies must be checked",
