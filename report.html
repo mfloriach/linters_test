@@ -105,15 +105,15 @@
 <div class="col-sm-3 threshold-badges">
     <div class="badge-progress badge-green">
         <div class="badge-header">
-            <div class="rate">86%</div>
+            <div class="rate">87%</div>
         </div>
         <div class="badge-progressbar">
-            <span data-fill="86%" style="width: 86%;"></span>
+            <span data-fill="87%" style="width: 87%;"></span>
         </div>
         <div class="badge-footer">
             <h3>Coverage Rate</h3>
             
-                <span>3/23 packages were not considered by any rule.</span>
+                <span>3/24 packages were not considered by any rule.</span>
             
             <span>[Threshold: 80%]</span>
         </div>
@@ -196,7 +196,7 @@
     
     
     <tr class="rule-verification">
-        <td rowspan="2">Dependency Rule</td>
+        <td rowspan="3">Dependency Rule</td>
         <td>Packages matching pattern &#39;**.serializers.**&#39; should [&#39;only depend on internal packages that matches [[**.shared.** **.pkg.**]]&#39;,&#39;only depend on external packages that matches [[github.com/gin-gonic/gin]]&#39;]</td>
         <td class="status" style="color:green">Succeed</td>
     </tr>
@@ -204,6 +204,14 @@
     <tr style="color:green">
         <td style="padding-left:10px;">
             Package hoge/modules/comments/serializers
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/modules/posts/serializers
             
         </td>
         <td style="text-align:center;vertical-align:top;">Succeed</td>
@@ -234,7 +242,7 @@
     
     
     <tr class="rule-verification">
-        <td rowspan="6">Dependency Rule</td>
+        <td rowspan="7">Dependency Rule</td>
         <td>Packages matching pattern &#39;**.posts.**&#39; should [&#39;not depend on internal packages that matches [[**.comments.**]]&#39;]</td>
         <td class="status" style="color:green">Succeed</td>
     </tr>
@@ -258,6 +266,14 @@
     <tr style="color:green">
         <td style="padding-left:10px;">
             Package hoge/modules/posts/repositories
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/modules/posts/serializers
             
         </td>
         <td style="text-align:center;vertical-align:top;">Succeed</td>
@@ -373,7 +389,7 @@
             
             <ul>
                 
-                <li>ShouldNotDependsOn.Internal rule contains imported package &#39;hoge/pkg/forceNotNil&#39;</li>
+                <li>ShouldNotDependsOn.Internal rule contains imported package &#39;hoge/pkg/traceavility&#39;</li>
                 
             </ul>
             
