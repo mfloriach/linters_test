@@ -49,13 +49,13 @@
         <td>Dependency Rule</td>
         <td>
             <div class="result_bar">
-                <div class="result_succeeded width-100"></div>
-                <div class="result_legend">3/3</div>
+                <div class="result_succeeded width-85"></div>
+                <div class="result_legend">6/7</div>
             </div>
         </td>
-        <td style="text-align:center;">3</td>
-        <td style="text-align:center;">3</td>
-        <td style="text-align:center;">0</td>
+        <td style="text-align:center;">7</td>
+        <td style="text-align:center;">6</td>
+        <td style="text-align:center;">1</td>
     </tr>
     
     <tr>
@@ -90,32 +90,32 @@
     <div class="col-sm-3 threshold-badges">
     <div class="badge-progress badge-green">
         <div class="badge-header">
-            <div class="rate">100%</div>
+            <div class="rate">85%</div>
         </div>
         <div class="badge-progressbar">
-            <span data-fill="100%" style="width: 100%;"></span>
+            <span data-fill="85%" style="width: 85%;"></span>
         </div>
         <div class="badge-footer">
             <h3>Compliance Rate</h3>
-            <span>3/3 rules were successfully verified</span>
-            <span>[Threshold: 100%]</span>
+            <span>6/7 rules were successfully verified</span>
+            <span>[Threshold: 80%]</span>
         </div>
     </div>
 </div>
 <div class="col-sm-3 threshold-badges">
     <div class="badge-progress badge-green">
         <div class="badge-header">
-            <div class="rate">31%</div>
+            <div class="rate">86%</div>
         </div>
         <div class="badge-progressbar">
-            <span data-fill="31%" style="width: 31%;"></span>
+            <span data-fill="86%" style="width: 86%;"></span>
         </div>
         <div class="badge-footer">
             <h3>Coverage Rate</h3>
             
-                <span>13/19 packages were not considered by any rule.</span>
+                <span>3/23 packages were not considered by any rule.</span>
             
-            <span>[Threshold: 30%]</span>
+            <span>[Threshold: 80%]</span>
         </div>
     </div>
 </div>
@@ -151,7 +151,7 @@
     
     <tr class="rule-verification">
         <td rowspan="3">Dependency Rule</td>
-        <td>Packages matching pattern &#39;**.interfaces.**&#39; should [&#39;not depend on internal packages that matches [[**.repositories.**]]&#39;]</td>
+        <td>Packages matching pattern &#39;**.interfaces.**&#39; should [&#39;not depend on internal packages that matches [[**.repositories.** **.services.**]]&#39;]</td>
         <td class="status" style="color:green">Succeed</td>
     </tr>
     
@@ -174,7 +174,7 @@
     
     <tr class="rule-verification">
         <td rowspan="3">Dependency Rule</td>
-        <td>Packages matching pattern &#39;**.services.**&#39; should [&#39;not depend on internal packages that matches [[**.interfaces.** **.serializers.**]]&#39;,&#39;not depend on external packages that matches [[github.com/gin-gonic/gin]]&#39;]</td>
+        <td>Packages matching pattern &#39;**.services.**&#39; should [&#39;not depend on internal packages that matches [[**.interfaces.** **.repositories.** **.serializers.**]]&#39;,&#39;not depend on external packages that matches [[github.com/gin-gonic/gin]]&#39;]</td>
         <td class="status" style="color:green">Succeed</td>
     </tr>
     
@@ -196,8 +196,23 @@
     
     
     <tr class="rule-verification">
+        <td rowspan="2">Dependency Rule</td>
+        <td>Packages matching pattern &#39;**.serializers.**&#39; should [&#39;only depend on internal packages that matches [[**.shared.** **.pkg.**]]&#39;,&#39;only depend on external packages that matches [[github.com/gin-gonic/gin]]&#39;]</td>
+        <td class="status" style="color:green">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/modules/comments/serializers
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    
+    <tr class="rule-verification">
         <td rowspan="3">Dependency Rule</td>
-        <td>Packages matching pattern &#39;**.repositories.**&#39; should [&#39;only depend on external packages that matches [[gorm.io/gorm github.com/gin-gonic/gin]]&#39;]</td>
+        <td>Packages matching pattern &#39;**.repositories.**&#39; should [&#39;only depend on external packages that matches [[gorm.io/gorm]]&#39;]</td>
         <td class="status" style="color:green">Succeed</td>
     </tr>
     
@@ -218,40 +233,185 @@
     </tr>
     
     
+    <tr class="rule-verification">
+        <td rowspan="6">Dependency Rule</td>
+        <td>Packages matching pattern &#39;**.posts.**&#39; should [&#39;not depend on internal packages that matches [[**.comments.**]]&#39;]</td>
+        <td class="status" style="color:green">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/modules/posts
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/modules/posts/interfaces
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/modules/posts/repositories
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/modules/posts/services
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/modules/posts/shared
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    
+    <tr class="rule-verification">
+        <td rowspan="8">Dependency Rule</td>
+        <td>Packages matching pattern &#39;**.pkg.**&#39; should [&#39;not depend on internal packages that matches [[**.modules.** **.cmd.**]]&#39;]</td>
+        <td class="status" style="color:green">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/pkg
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/pkg/architecture
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/pkg/forceNotNil
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/pkg/ginReturnSerializer
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/pkg/modularization
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/pkg/swaggo
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/pkg/traceavility
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    
+    <tr class="rule-verification">
+        <td rowspan="5">Dependency Rule</td>
+        <td>Packages matching pattern &#39;**.cmd.**&#39; should [&#39;not depend on internal packages that matches [[**.modules.** **.pkg.**]]&#39;]</td>
+        <td class="status" style="color:red">Fail</td>
+    </tr>
+    
+    <tr style="color:red">
+        <td style="padding-left:10px;">
+            Package hoge/cmd
+            
+            <ul>
+                
+                <li>ShouldNotDependsOn.Internal rule contains imported package &#39;hoge/modules/comments&#39;</li>
+                
+                <li>ShouldNotDependsOn.Internal rule contains imported package &#39;hoge/modules/posts&#39;</li>
+                
+                <li>ShouldNotDependsOn.Internal rule contains imported package &#39;hoge/pkg&#39;</li>
+                
+            </ul>
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Fail</td>
+    </tr>
+    
+    <tr style="color:red">
+        <td style="padding-left:10px;">
+            Package hoge/cmd/linter
+            
+            <ul>
+                
+                <li>ShouldNotDependsOn.Internal rule contains imported package &#39;hoge/pkg/forceNotNil&#39;</li>
+                
+            </ul>
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Fail</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/cmd/metrics
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/cmd/metrics/metrics
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    
     </tbody>
 </table>
 </div>
                 </div>
                 <div class="tab-pane fade" id="nav-coverage" role="tabpanel" aria-labelledby="nav-coverage-tab">
                     <div class="container">
-                        <h4>Uncovered Packages: 13</h4>
+                        <h4>Uncovered Packages: 3</h4>
                         
                         <p>The following packages were not considered by any rule.</p>
                         <ul>
                             
-                            <li>hoge/cmd</li>
-                            
-                            <li>hoge/cmd/linter</li>
-                            
                             <li>hoge/modules/comments</li>
                             
-                            <li>hoge/modules/comments/serializers</li>
-                            
-                            <li>hoge/modules/posts</li>
-                            
-                            <li>hoge/pkg</li>
-                            
-                            <li>hoge/pkg/architecture</li>
-                            
-                            <li>hoge/pkg/forceNotNil</li>
-                            
-                            <li>hoge/pkg/ginReturnSerializer</li>
-                            
-                            <li>hoge/pkg/modularization</li>
-                            
-                            <li>hoge/pkg/swaggo</li>
-                            
-                            <li>hoge/pkg/traceavility</li>
+                            <li>hoge/modules/comments/shared</li>
                             
                             <li>hoge/plugins</li>
                             
