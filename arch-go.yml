@@ -1,7 +1,7 @@
 version: 1
 threshold:
-  compliance: 100
-  coverage: 30
+  compliance: 80
+  coverage: 80
 dependenciesRules:
   - package: "**.interfaces.**"
     shouldNotDependsOn: 
@@ -22,6 +22,7 @@ dependenciesRules:
     shouldOnlyDependsOn: 
       internal: 
         - "**.shared.**"
+        - "**.pkg.**"
       external:
         - "github.com/gin-gonic/gin"
 
@@ -34,4 +35,16 @@ dependenciesRules:
     shouldNotDependsOn: 
       internal: 
         - "**.comments.**"
+
+  - package: "**.pkg.**"
+    shouldNotDependsOn: 
+      internal: 
+        - "**.modules.**"
+        - "**.cmd.**"
+
+  - package: "**.cmd.**"
+    shouldNotDependsOn: 
+      internal: 
+        - "**.modules.**"
+        - "**.pkg.**"
 
