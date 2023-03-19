@@ -1,12 +1,28 @@
-linters:
+install: 
+	docker build -t tools .
+
+# start a server to inspect the packages compling 
+graph: 
+	docker run -it --rm -v $(pwd):/usr/src/app -p 7878:7878 --privileged tools go-callvis -skipbrowser cmd/main.go
+
+# only works locally it requeri to install/compile golangci-lint locally
+custom:
 	go build -buildmode=plugin -o plugins plugins/arch.go
 	golangci-lint cache clean
 
-structure:
-	docker compose run --rm web go-callvis -ignore hoge/pkg,github.com/gin-gonic/gin cmd/main.go
+# generate architecture metrics (inestability, abstraction and distance)
+metrics:
+	docker run --rm -v $(PWD):/usr/src/app tools spm-go all --html cmd/main.go
 
-coupling:
-	docker compose run --rm web spm-go all --html cmd/main.go
-
+# generate architecture compliance
 arch:
-	docker compose run --rm web arch-go --html
+	docker run --rm -v $(PWD):/usr/src/app tools arch-go --html
+
+# runs golangci-lint inside docker
+linter:
+	docker run --rm -v $(pwd):/usr/src/app tools golangci-lint run
+
+# usefull for testing new linters (better debugging experience)
+test:
+	docker run --rm -v $(pwd):/usr/src/app tools go run cmd/linter/main.go ./modules/...
+

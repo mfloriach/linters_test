@@ -2,28 +2,21 @@ package services
 
 import (
 	"context"
-	"hoge/modules/posts/repositories"
+	"hoge/modules/posts/shared"
 )
 
-type PostServiceInterface interface {
-	GetPosts(ctx context.Context) string
-}
-
 type postService struct {
-	postRepo repositories.PostRepositoryInterface
+	postRepo shared.PostRepositoryInterface
 }
 
-func NewPostService(postRepo repositories.PostRepositoryInterface) PostServiceInterface {
+func NewPostService(postRepo shared.PostRepositoryInterface) shared.PostServiceInterface {
 	if postRepo == nil {
-		panic("sdfdsfdsfds")
+		panic("post repository can not be nil")
 	}
 
 	return &postService{postRepo: postRepo}
 }
 
-func (s postService) GetPosts(ctx context.Context) string {
+func (s postService) GetPosts(ctx context.Context) ([]shared.PostEntity, error) {
 	return s.postRepo.GetPosts(ctx)
-}
-
-func (s postService) GeetPosts() {
 }

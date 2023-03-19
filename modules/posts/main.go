@@ -4,6 +4,7 @@ import (
 	"hoge/modules/posts/interfaces"
 	"hoge/modules/posts/repositories"
 	"hoge/modules/posts/services"
+	"hoge/modules/posts/shared"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -19,7 +20,7 @@ func GinServer(r *gin.Engine, db gorm.DB) {
 func GrpcServer() {
 }
 
-func dependencyInjection(db gorm.DB) services.PostServiceInterface {
+func dependencyInjection(db gorm.DB) shared.PostServiceInterface {
 	postRepo := repositories.NewPostMysqlRepository(db)
 	postService := services.NewPostService(postRepo)
 

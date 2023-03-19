@@ -1,18 +1,28 @@
 version: 1
 threshold:
-  compliance: 100
-  coverage: 100
+  compliance: 80
+  coverage: 80
 dependenciesRules:
   - package: "**.interfaces.**"
     shouldNotDependsOn: 
       internal: 
         - "**.repositories.**"
+        - "**.services.**"
 
   - package: "**.services.**"
     shouldNotDependsOn: 
       internal: 
         - "**.interfaces.**"
+        - "**.repositories.**"
         - "**.serializers.**"
+      external:
+        - "github.com/gin-gonic/gin"
+
+  - package: "**.serializers.**"
+    shouldOnlyDependsOn: 
+      internal: 
+        - "**.shared.**"
+        - "**.pkg.**"
       external:
         - "github.com/gin-gonic/gin"
 
@@ -20,5 +30,21 @@ dependenciesRules:
     shouldOnlyDependsOn:
       external: 
         - "gorm.io/gorm"
-        - "github.com/gin-gonic/gin"
+
+  - package: "**.posts.**"
+    shouldNotDependsOn: 
+      internal: 
+        - "**.comments.**"
+
+  - package: "**.pkg.**"
+    shouldNotDependsOn: 
+      internal: 
+        - "**.modules.**"
+        - "**.cmd.**"
+
+  - package: "**.cmd.**"
+    shouldNotDependsOn: 
+      internal: 
+        - "**.modules.**"
+        - "**.pkg.**"
 

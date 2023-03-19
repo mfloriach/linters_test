@@ -11,6 +11,18 @@ Contents:
 Force endpoints to return serializer objects that require some data manipulation. For example in order to shadow the data IDs.
 
 ## Examples
+❌ Incorrect
+```go
+func (p commentsController) GetComments(c *gin.Context) {
+	comments := p.commentsService.GetComments(c)
+
+	c.JSON(http.StatusOK, gin.H{
+		"data": comments,
+	})
+}
+```
+
+✅ Correct
 ```go
 func (p commentsController) GetComments(c *gin.Context) {
 	comments := p.commentsService.GetComments(c)
@@ -20,5 +32,4 @@ func (p commentsController) GetComments(c *gin.Context) {
 	})
 }
 ```
-
 ## Notes

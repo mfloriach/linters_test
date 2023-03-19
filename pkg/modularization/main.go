@@ -19,7 +19,7 @@ const (
 func NewAnalyzer() *analysis.Analyzer {
 	return &analysis.Analyzer{
 		Name:  "modularization",
-		Doc:   "check modules are using facade pattern",
+		Doc:   "should use facade pattern",
 		Run:   run,
 		Flags: flagSet,
 	}

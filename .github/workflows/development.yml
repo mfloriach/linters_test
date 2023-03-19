@@ -1,0 +1,48 @@
+name: reviewdog
+on: [push]
+jobs:
+  reviewdog:
+    name: runner / golangci-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: nightly
+      - run: reviewdog -version 
+
+      - name: Create testing image
+        run: make install
+
+      # - name: Run reviewdog
+      #   env:
+      #     REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
+      #   run: |
+      #     reviewdog -reporter=github-check
+
+      - name: Calculare coupling
+        run: |
+          make metrics
+
+      - name: Deploy metrics
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./spm-go
+          keep_files: true
+          enable_jekyll: true
+
+      - name: architecture compliance
+        run: |
+          make arch
+
+      - name: Deploy architecture
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./.arch-go
+          keep_files: true
+          enable_jekyll: true
+
+      

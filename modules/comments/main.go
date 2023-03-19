@@ -4,6 +4,7 @@ import (
 	"hoge/modules/comments/interfaces"
 	"hoge/modules/comments/repositories"
 	"hoge/modules/comments/services"
+	"hoge/modules/comments/shared"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -21,7 +22,7 @@ func GinServer(r *gin.Engine, db gorm.DB) {
 func GrpcServer() {
 }
 
-func dependencyInjection(db gorm.DB) services.CommentsServiceInterface {
+func dependencyInjection(db gorm.DB) shared.CommentsServiceInterface {
 	commentsRepo := repositories.NewCommentsMysqlRepository(db)
 	return services.NewCommentsService(commentsRepo)
 }

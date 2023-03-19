@@ -30,9 +30,14 @@ func run(pass *analysis.Pass) (interface{}, error) {
 			for _, declaration := range file.Decls {
 				if function, ok := declaration.(*ast.FuncDecl); ok {
 
-					// if file.Name.String() == "repositories" {
-					// 	mysqlWithContext(pass, function)
-					// }
+					if file.Name.String() == "repositories" && !mysqlWithContext(pass, function) {
+						pass.Report(
+							analysis.Diagnostic{
+								Pos:     function.Pos(),
+								Message: ContextReport,
+							},
+						)
+					}
 
 					if !checkContextIsPropagate(function) {
 						pass.Report(
@@ -79,27 +84,30 @@ func isFunctionParamTypeCorrect(field *ast.Field, expectedName string) bool {
 	return false
 }
 
-func mysqlWithContext(pass *analysis.Pass, function *ast.FuncDecl) {
+func mysqlWithContext(pass *analysis.Pass, function *ast.FuncDecl) bool {
 	for _, stmts := range function.Body.List {
 		if stmt, ok := stmts.(*ast.ExprStmt); ok {
 
-			// stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.CallExpr).Fun
-			err := ast.Print(pass.Fset, stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).Sel)
-			if err != nil {
-				panic(err)
-			}
-
-			// line := stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.SelectorExpr).X.(*ast.Ident) // desde aqui
-
-			// object := line.Obj.Decl.(*ast.Field).Type.(*ast.Ident).Obj.Decl.(*ast.TypeSpec).Type.(*ast.StructType).Fields.List[0].Type.(*ast.SelectorExpr)
-			// // using injected
-			// if line.Name == "r" && object.Sel.Name == "DB" && object.X.(*ast.Ident).Name == "gorm" {
-			// 	if stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).Sel.Name == "WithContext" {
-			// 		fmt.Println("sdfgsdfdsfds")
-			// 	}
-
+			// err := ast.Print(pass.Fset, stmt.X)
+			// if err != nil {
+			// 	panic(err)
 			// }
 
+			if _, ok := stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.SelectorExpr); ok {
+				if stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.SelectorExpr).Sel.Name == "db" {
+					return false
+				}
+			}
+
+			if _, ok := stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.Ident); ok {
+				continue
+			}
+
+			if stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.SelectorExpr).Sel.Name == "db" && stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).Sel.Name != "WithContext" {
+				return false
+			}
 		}
 	}
+
+	return true
 }

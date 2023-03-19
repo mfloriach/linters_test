@@ -1,23 +1,32 @@
 package serializers
 
-import "time"
+import (
+	"hoge/modules/comments/shared"
+	"hoge/pkg"
+)
 
 type comment struct {
-	ID        string
-	UserID    string
-	PostID    string
-	Text      string
-	CreatedAt time.Time
+	ID      string
+	PostID  string
+	UserID  string
+	Content string
 }
 
-func CommentsSerialize(comments string) []comment {
-	return []comment{
-		{
-			ID:        "asdsadas",
-			UserID:    "dfdsfdsf",
-			PostID:    "dsfdsfdsfsdf",
-			Text:      "dsfdsfdsf",
-			CreatedAt: time.Now(),
-		},
+func CommentsSerialize(comments []shared.CommentEntity) []comment {
+	res := make([]comment, len(comments))
+
+	for i, c := range comments {
+		res[i] = CommentSerialize(c)
+	}
+
+	return res
+}
+
+func CommentSerialize(c shared.CommentEntity) comment {
+	return comment{
+		ID:      pkg.HashId(c.ID),
+		PostID:  pkg.HashId(c.PostID),
+		UserID:  pkg.HashId(c.UserID),
+		Content: c.Content,
 	}
 }
