@@ -105,15 +105,15 @@
 <div class="col-sm-3 threshold-badges">
     <div class="badge-progress badge-green">
         <div class="badge-header">
-            <div class="rate">87%</div>
+            <div class="rate">88%</div>
         </div>
         <div class="badge-progressbar">
-            <span data-fill="87%" style="width: 87%;"></span>
+            <span data-fill="88%" style="width: 88%;"></span>
         </div>
         <div class="badge-footer">
             <h3>Coverage Rate</h3>
             
-                <span>3/24 packages were not considered by any rule.</span>
+                <span>3/25 packages were not considered by any rule.</span>
             
             <span>[Threshold: 80%]</span>
         </div>
@@ -297,7 +297,7 @@
     
     
     <tr class="rule-verification">
-        <td rowspan="8">Dependency Rule</td>
+        <td rowspan="9">Dependency Rule</td>
         <td>Packages matching pattern &#39;**.pkg.**&#39; should [&#39;not depend on internal packages that matches [[**.modules.** **.cmd.**]]&#39;]</td>
         <td class="status" style="color:green">Succeed</td>
     </tr>
@@ -329,6 +329,14 @@
     <tr style="color:green">
         <td style="padding-left:10px;">
             Package hoge/pkg/ginReturnSerializer
+            
+        </td>
+        <td style="text-align:center;vertical-align:top;">Succeed</td>
+    </tr>
+    
+    <tr style="color:green">
+        <td style="padding-left:10px;">
+            Package hoge/pkg/hashIds
             
         </td>
         <td style="text-align:center;vertical-align:top;">Succeed</td>
@@ -389,7 +397,7 @@
             
             <ul>
                 
-                <li>ShouldNotDependsOn.Internal rule contains imported package &#39;hoge/pkg/traceavility&#39;</li>
+                <li>ShouldNotDependsOn.Internal rule contains imported package &#39;hoge/pkg/ginReturnSerializer&#39;</li>
                 
             </ul>
             
