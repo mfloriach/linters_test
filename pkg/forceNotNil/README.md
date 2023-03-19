@@ -15,8 +15,16 @@ Interfaces can be `nil` provoking errors on runtime, that are dificult find.
 Therefore this linter helps to allways check dependencies injections to avoid this problem
 
 ## Examples
+❌ Incorrect
 ```go
 
+func NewObject(serviceA ServiceAInterface) {
+    ...
+}
+```
+
+✅ Correct
+```go
 func NewObject(serviceA ServiceAInterface) {
     if serviceA == nil {
         panic("serviceA dependency can not be nil")

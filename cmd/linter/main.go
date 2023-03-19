@@ -1,11 +1,11 @@
 package main
 
 import (
-	"hoge/pkg/traceavility"
+	gin "hoge/pkg/ginReturnSerializer"
 
 	"golang.org/x/tools/go/analysis/singlechecker"
 )
 
 func main() {
-	singlechecker.Main(traceavility.NewAnalyzer())
+	singlechecker.Main(gin.NewAnalyzer())
 }

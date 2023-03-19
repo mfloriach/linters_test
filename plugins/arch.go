@@ -4,6 +4,7 @@ import (
 	"hoge/pkg/architecture"
 	force "hoge/pkg/forceNotNil"
 	gin "hoge/pkg/ginReturnSerializer"
+	hash "hoge/pkg/hashIds"
 	"hoge/pkg/modularization"
 	"hoge/pkg/swaggo"
 
@@ -19,10 +20,11 @@ func (*analyzerPlugin) GetAnalyzers() []*analysis.Analyzer {
 	return []*analysis.Analyzer{
 		traceavility.NewAnalyzer(),
 		force.NewAnalyzer(),
-		gin.NewGinReturnAnalyzer(),
+		gin.NewAnalyzer(),
 		architecture.NewAnalyzer(),
 		swaggo.NewAnalyzer(),
 		modularization.NewAnalyzer(),
+		hash.NewAnalyzer(),
 	}
 }
 
