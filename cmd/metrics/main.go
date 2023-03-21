@@ -10,7 +10,7 @@ import (
 
 const (
 	templateHtml = "assets/report.template.html"
-	parsedHtml   = "./report.html"
+	parsedHtml   = "assets/summarize.html"
 )
 
 type Report struct {

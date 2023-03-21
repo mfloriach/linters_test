@@ -29,7 +29,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./spm-go
+          publish_dir: spm-go
           keep_files: true
           enable_jekyll: true
 
@@ -37,7 +37,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./.arch-go
+          publish_dir: .arch-go
           keep_files: true
           enable_jekyll: true
 
@@ -45,7 +45,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: .report.html
+          publish_dir: assets
           keep_files: true
           enable_jekyll: true
 
@@ -53,7 +53,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./coverage/coverage.html
+          publish_dir: coverage
           keep_files: true
           enable_jekyll: true
 
