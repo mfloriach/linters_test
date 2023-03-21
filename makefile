@@ -29,7 +29,6 @@ test:
 test-coverage:
 	go test -v ./... -coverprofile coverage/coverage.out
 	go tool cover -html coverage/coverage.out -o coverage/coverage.html
-	open coverage/coverage.html
 
 report:
 	go run cmd/metrics/main.go 
