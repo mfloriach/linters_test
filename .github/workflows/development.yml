@@ -26,11 +26,31 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: 
-            - ./spm-go
-            - ./.arch-go
-            - .report.html
-            - ./coverage/coverage.html
+          publish_dir: ./spm-go
+          keep_files: true
+          enable_jekyll: true
+
+      - name: github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./.arch-go
+          keep_files: true
+          enable_jekyll: true
+
+      - name: github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: .report.html
+          keep_files: true
+          enable_jekyll: true
+
+      - name: github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./coverage/coverage.html
           keep_files: true
           enable_jekyll: true
 
