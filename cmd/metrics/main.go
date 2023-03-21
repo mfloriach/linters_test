@@ -10,7 +10,7 @@ import (
 
 const (
 	templateHtml = "assets/report.template.html"
-	parsedHtml   = "assets/summarize.html"
+	parsedHtml   = "summarize.html"
 )
 
 type Report struct {
@@ -82,8 +82,8 @@ func main() {
 
 	tmpl, err := template.ParseFiles(templateHtml,
 		"assets/header.html",
-		"assets/module_details.html",
 		"assets/summarize.html",
+		"assets/module_details.html",
 		"assets/modules.html",
 		"assets/compliance.html",
 		"assets/metrics.html",
