@@ -1,0 +1,17 @@
+mode: set
+hoge/modules/comments/serializers/comment_serializer.go:15.67,18.29 2 1
+hoge/modules/comments/serializers/comment_serializer.go:22.2,22.12 1 1
+hoge/modules/comments/serializers/comment_serializer.go:18.29,20.3 1 1
+hoge/modules/comments/serializers/comment_serializer.go:25.55,32.2 1 1
+hoge/modules/comments/services/comment_service.go:12.106,13.25 1 1
+hoge/modules/comments/services/comment_service.go:17.2,17.52 1 1
+hoge/modules/comments/services/comment_service.go:13.25,14.38 1 1
+hoge/modules/comments/services/comment_service.go:20.104,22.2 1 1
+hoge/modules/posts/serializers/posts_serializer.go:14.55,17.26 2 1
+hoge/modules/posts/serializers/posts_serializer.go:21.2,21.12 1 1
+hoge/modules/posts/serializers/posts_serializer.go:17.26,19.3 1 1
+hoge/modules/posts/serializers/posts_serializer.go:24.46,30.2 1 1
+hoge/modules/posts/services/posts_service.go:12.90,13.21 1 1
+hoge/modules/posts/services/posts_service.go:17.2,17.41 1 1
+hoge/modules/posts/services/posts_service.go:13.21,14.42 1 1
+hoge/modules/posts/services/posts_service.go:20.81,22.2 1 1
