@@ -32,5 +32,4 @@ test-coverage:
 
 report:
 	go run cmd/metrics/main.go 
-	open report.html
 
