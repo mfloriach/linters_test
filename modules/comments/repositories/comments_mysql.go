@@ -20,3 +20,10 @@ func (r commentsMysqlRepository) GetComments(ctx context.Context) (comments []sh
 
 	return comments, err
 }
+
+func (r commentsMysqlRepository) GetComment(ctx context.Context) {
+	if true == true {
+
+	}
+	r.db.Find(1)
+}

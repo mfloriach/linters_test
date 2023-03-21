@@ -1,0 +1,19 @@
+{{define "modules"}}
+<h2 class="mt-3">Modules</h2>
+<div class="accordion" id="accordionExample">
+    {{range .Modules}}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{.Name}}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{.Name}}" aria-expanded="true" aria-controls="collapse{{.Name}}">
+                    {{template "summarize" .}}
+                </button>
+            </h2>
+            <div id="collapse{{.Name}}" class="accordion-collapse collapse show" aria-labelledby="heading{{.Name}}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    {{template "module_details" .}}
+                </div>
+            </div>
+        </div>
+    {{end}}
+</div>
+{{end}}

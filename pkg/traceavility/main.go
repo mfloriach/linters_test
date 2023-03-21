@@ -9,7 +9,8 @@ import (
 )
 
 const (
-	ContextReport = "must always propagate the context See: https://github.com/mfloriach/linters_test/tree/main/pkg/context"
+	ContextReport      = "must always propagate the context See: https://github.com/mfloriach/linters_test/tree/main/pkg/traceavility"
+	ContextMysqlReport = "third parties (gorm) must contain `WithContext` See: https://github.com/mfloriach/linters_test/tree/main/pkg/traceavility"
 )
 
 //nolint:gochecknoglobals
@@ -87,11 +88,6 @@ func isFunctionParamTypeCorrect(field *ast.Field, expectedName string) bool {
 func mysqlWithContext(pass *analysis.Pass, function *ast.FuncDecl) bool {
 	for _, stmts := range function.Body.List {
 		if stmt, ok := stmts.(*ast.ExprStmt); ok {
-
-			// err := ast.Print(pass.Fset, stmt.X)
-			// if err != nil {
-			// 	panic(err)
-			// }
 
 			if _, ok := stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.SelectorExpr); ok {
 				if stmt.X.(*ast.CallExpr).Fun.(*ast.SelectorExpr).X.(*ast.SelectorExpr).Sel.Name == "db" {

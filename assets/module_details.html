@@ -1,0 +1,40 @@
+{{define "module_details"}}
+<div class="container text-left">
+    <div class="row align-items-start">
+    <div class="col">
+        <h5>General</h5>
+        <ul>
+            <li>Line: {{.Lines}} ({{.PercentageOfLines}}%)</li>
+            <li>Files: {{.Files}}</li>
+        </ul>
+    </div>
+    <div class="col">
+        <h5>Metrics</h5>
+        <ul>
+            <li>AVC: {{.Metrics.Avg}}</li>
+            <li>Propagation cost: {{.Metrics.PropagationCost}}%</li>
+        </ul>
+    </div>
+    <div class="col">
+        <h5>Depend</h5>
+        <p>Internal (2)</p>
+        <ul>
+            <li>hoge/modules/comments</li>
+            <li>hoge/modules/auth</li>
+        </ul>
+        <p>External (1)</p>
+        <ul>
+            <li>gorm.io/gorm</li>
+        </ul>
+    </div>
+    <div class="col">
+        <h5>Dependant</h5>
+        <ul>
+            <li>hoge/modules/payment</li>
+        </ul>
+    </div>
+    </div>
+
+    <img src="{{.Graph}}"/>
+</div>
+{{end}}

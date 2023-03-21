@@ -1,0 +1,93 @@
+digraph gocallvis {
+    label="command-line-arguments";
+    labeljust="l";
+    fontname="Arial";
+    fontsize="14";
+    rankdir="LR";
+    bgcolor="lightgray";
+    style="solid";
+    penwidth="0.5";
+    pad="0.0";
+    nodesep="0.35";
+
+    node [shape="box" style="filled,rounded" fillcolor="honeydew" fontname="Verdana" penwidth="1.0" margin="0.05,0.0"];
+    edge [minlen="2"]
+
+    subgraph "cluster_focus" {
+        bgcolor="#e6ecfa";
+label="comments";
+labelloc="t";
+labeljust="c";
+fontsize="18";
+        
+        "hoge/modules/comments.dependencyInjection" [ penwidth="0.5" tooltip="hoge/modules/comments.dependencyInjection | defined in main.go:25\nat main.go:26: calling [hoge/modules/comments/repositories.NewCommentsMysqlRepository]\nat main.go:27: calling [hoge/modules/comments/services.NewCommentsService]" fillcolor="lightblue" label="dependencyInjection" ]
+        "hoge/modules/comments.GinServer" [ penwidth="1.5" tooltip="hoge/modules/comments.GinServer | defined in main.go:14\nat main.go:15: calling [hoge/modules/comments.dependencyInjection]\nat main.go:16: calling [hoge/modules/comments/interfaces.NewCommentsController]" fillcolor="lightblue" label="GinServer" ]
+        
+        subgraph "cluster_command-line-arguments" {
+        penwidth="0.8";
+style="filled";
+rank="sink";
+tooltip="package: command-line-arguments";
+fontsize="16";
+fillcolor="lightyellow";
+fontname="Tahoma bold";
+label="main";
+URL="/?f=command-line-arguments";
+        
+        "command-line-arguments.ginServer" [ fillcolor="moccasin" label="ginServer" penwidth="0.5" tooltip="command-line-arguments.ginServer | defined in main.go:29\nat main.go:33: calling [hoge/modules/comments.GinServer]" ]
+        
+    }
+
+        subgraph "cluster_hoge/modules/comments/interfaces" {
+        fontsize="16";
+style="filled";
+fontname="Tahoma bold";
+label="interfaces";
+tooltip="package: hoge/modules/comments/interfaces";
+penwidth="0.8";
+rank="sink";
+URL="/?f=hoge/modules/comments/interfaces";
+fillcolor="lightyellow";
+        
+        "hoge/modules/comments/interfaces.NewCommentsController" [ fillcolor="moccasin" label="NewCommentsController" penwidth="1.5" tooltip="hoge/modules/comments/interfaces.NewCommentsController | defined in gin.go:17" ]
+        
+    }
+
+        subgraph "cluster_hoge/modules/comments/repositories" {
+        fontsize="16";
+fillcolor="lightyellow";
+fontname="Tahoma bold";
+penwidth="0.8";
+rank="sink";
+label="repositories";
+URL="/?f=hoge/modules/comments/repositories";
+tooltip="package: hoge/modules/comments/repositories";
+style="filled";
+        
+        "hoge/modules/comments/repositories.NewCommentsMysqlRepository" [ label="NewCommentsMysqlRepository" penwidth="1.5" tooltip="hoge/modules/comments/repositories.NewCommentsMysqlRepository | defined in comments_mysql.go:14" fillcolor="moccasin" ]
+        
+    }
+
+        subgraph "cluster_hoge/modules/comments/services" {
+        fontsize="16";
+style="filled";
+fontname="Tahoma bold";
+rank="sink";
+URL="/?f=hoge/modules/comments/services";
+penwidth="0.8";
+label="services";
+tooltip="package: hoge/modules/comments/services";
+fillcolor="lightyellow";
+        
+        "hoge/modules/comments/services.NewCommentsService" [ fillcolor="moccasin" label="NewCommentsService" penwidth="1.5" tooltip="hoge/modules/comments/services.NewCommentsService | defined in comment_service.go:12" ]
+        
+    }
+
+    }
+
+    "hoge/modules/comments.dependencyInjection" -> "hoge/modules/comments/repositories.NewCommentsMysqlRepository" [ color="saddlebrown" tooltip="at main.go:26: calling [hoge/modules/comments/repositories.NewCommentsMysqlRepository]" ]
+    "hoge/modules/comments.dependencyInjection" -> "hoge/modules/comments/services.NewCommentsService" [ color="saddlebrown" tooltip="at main.go:27: calling [hoge/modules/comments/services.NewCommentsService]" ]
+    "hoge/modules/comments.GinServer" -> "hoge/modules/comments.dependencyInjection" [ tooltip="at main.go:15: calling [hoge/modules/comments.dependencyInjection]" ]
+    "hoge/modules/comments.GinServer" -> "hoge/modules/comments/interfaces.NewCommentsController" [ color="saddlebrown" tooltip="at main.go:16: calling [hoge/modules/comments/interfaces.NewCommentsController]" ]
+    "command-line-arguments.ginServer" -> "hoge/modules/comments.GinServer" [ tooltip="at main.go:33: calling [hoge/modules/comments.GinServer]" color="saddlebrown" ]
+}

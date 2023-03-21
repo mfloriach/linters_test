@@ -1,0 +1,21 @@
+{{define "summarize"}}
+<div class="container text-left">
+    <div class="row align-items-start">
+    <div class="col">
+        {{.Name}}
+    </div>
+    <div class="col">
+        <p>Line: {{.Lines}} ({{.PercentageOfLines}}%)</p>
+    </div>
+    <div class="col">
+        <p>Files: {{.Files}}</p>
+    </div>
+    <div class="col">
+        <p>Depend(3)</p>
+    </div>
+    <div class="col">
+        <p>Dependant(1)</p>
+    </div>
+    </div>
+</div>
+{{end}}

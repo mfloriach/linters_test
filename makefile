@@ -6,7 +6,7 @@ graph:
 	docker run -it --rm -v $(pwd):/usr/src/app -p 7878:7878 --privileged tools go-callvis -skipbrowser cmd/main.go
 
 # only works locally it requeri to install/compile golangci-lint locally
-custom:
+local-linter:
 	go build -buildmode=plugin -o plugins plugins/arch.go
 	golangci-lint cache clean
 
@@ -25,4 +25,13 @@ linter:
 # usefull for testing new linters (better debugging experience)
 test:
 	docker run --rm -v $(pwd):/usr/src/app tools go run cmd/linter/main.go ./modules/...
+
+test-coverage:
+	go test -v ./... -coverprofile coverage/coverage.out
+	go tool cover -html coverage/coverage.out -o coverage/coverage.html
+	open coverage/coverage.html
+
+report:
+	go run cmd/metrics/main.go 
+	open report.html
 
