@@ -13,6 +13,9 @@ jobs:
       - name: Calculare coupling
         run: make metrics
 
+      - name: create folder
+        run: mkdir coverage
+
       - name: Unit test
         run: make test-coverage
 
