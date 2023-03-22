@@ -7,41 +7,53 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: reviewdog/action-setup@v1
-        with:
-          reviewdog_version: nightly
-      - run: reviewdog -version 
-
       - name: Create testing image
         run: make install
 
-      # - name: Run reviewdog
-      #   env:
-      #     REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
-      #   run: |
-      #     reviewdog -reporter=github-check
-
       - name: Calculare coupling
-        run: |
-          make metrics
+        run: make metrics
 
-      - name: Deploy metrics
+      - name: create folder
+        run: mkdir coverage
+
+      - name: Unit test
+        run: make test-coverage
+
+      - name: architecture compliance
+        run: make arch
+
+      - name: Report
+        run: make report
+
+      - name: github pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./spm-go
+          publish_dir: spm-go
           keep_files: true
           enable_jekyll: true
 
-      - name: architecture compliance
-        run: |
-          make arch
-
-      - name: Deploy architecture
+      - name: github pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./.arch-go
+          publish_dir: .arch-go
+          keep_files: true
+          enable_jekyll: true
+
+      - name: github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: assets
+          keep_files: true
+          enable_jekyll: true
+
+      - name: github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: coverage
           keep_files: true
           enable_jekyll: true
 

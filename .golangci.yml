@@ -103,3 +103,10 @@ output:
 
   # sorts results by: filepath, line and column
   sort-results: true
+
+severity:
+  default-severity: error
+  rules:
+    - linters:
+        - monsterlab
+      severity: error

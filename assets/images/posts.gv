@@ -1,0 +1,93 @@
+digraph gocallvis {
+    label="command-line-arguments";
+    labeljust="l";
+    fontname="Arial";
+    fontsize="14";
+    rankdir="LR";
+    bgcolor="lightgray";
+    style="solid";
+    penwidth="0.5";
+    pad="0.0";
+    nodesep="0.35";
+
+    node [shape="box" style="filled,rounded" fillcolor="honeydew" fontname="Verdana" penwidth="1.0" margin="0.05,0.0"];
+    edge [minlen="2"]
+
+    subgraph "cluster_focus" {
+        bgcolor="#e6ecfa";
+label="posts";
+labelloc="t";
+labeljust="c";
+fontsize="18";
+        
+        "hoge/modules/posts.dependencyInjection" [ fillcolor="lightblue" label="dependencyInjection" penwidth="0.5" tooltip="hoge/modules/posts.dependencyInjection | defined in main.go:23\nat main.go:24: calling [hoge/modules/posts/repositories.NewPostMysqlRepository]\nat main.go:25: calling [hoge/modules/posts/services.NewPostService]" ]
+        "hoge/modules/posts.GinServer" [ label="GinServer" penwidth="1.5" tooltip="hoge/modules/posts.GinServer | defined in main.go:14\nat main.go:15: calling [hoge/modules/posts.dependencyInjection]\nat main.go:16: calling [hoge/modules/posts/interfaces.NewPostController]" fillcolor="lightblue" ]
+        
+        subgraph "cluster_command-line-arguments" {
+        penwidth="0.8";
+style="filled";
+label="main";
+fontsize="16";
+fillcolor="lightyellow";
+fontname="Tahoma bold";
+rank="sink";
+URL="/?f=command-line-arguments";
+tooltip="package: command-line-arguments";
+        
+        "command-line-arguments.ginServer" [ label="ginServer" penwidth="0.5" tooltip="command-line-arguments.ginServer | defined in main.go:29\nat main.go:32: calling [hoge/modules/posts.GinServer]" fillcolor="moccasin" ]
+        
+    }
+
+        subgraph "cluster_hoge/modules/posts/interfaces" {
+        fillcolor="lightyellow";
+fontname="Tahoma bold";
+label="interfaces";
+tooltip="package: hoge/modules/posts/interfaces";
+fontsize="16";
+style="filled";
+URL="/?f=hoge/modules/posts/interfaces";
+penwidth="0.8";
+rank="sink";
+        
+        "hoge/modules/posts/interfaces.NewPostController" [ fillcolor="moccasin" label="NewPostController" penwidth="1.5" tooltip="hoge/modules/posts/interfaces.NewPostController | defined in gin.go:15" ]
+        
+    }
+
+        subgraph "cluster_hoge/modules/posts/repositories" {
+        penwidth="0.8";
+fontsize="16";
+fontname="Tahoma bold";
+rank="sink";
+label="repositories";
+tooltip="package: hoge/modules/posts/repositories";
+style="filled";
+fillcolor="lightyellow";
+URL="/?f=hoge/modules/posts/repositories";
+        
+        "hoge/modules/posts/repositories.NewPostMysqlRepository" [ fillcolor="moccasin" label="NewPostMysqlRepository" penwidth="1.5" tooltip="hoge/modules/posts/repositories.NewPostMysqlRepository | defined in post_mysql.go:14" ]
+        
+    }
+
+        subgraph "cluster_hoge/modules/posts/services" {
+        penwidth="0.8";
+fontsize="16";
+style="filled";
+URL="/?f=hoge/modules/posts/services";
+fillcolor="lightyellow";
+fontname="Tahoma bold";
+rank="sink";
+label="services";
+tooltip="package: hoge/modules/posts/services";
+        
+        "hoge/modules/posts/services.NewPostService" [ fillcolor="moccasin" label="NewPostService" penwidth="1.5" tooltip="hoge/modules/posts/services.NewPostService | defined in posts_service.go:12" ]
+        
+    }
+
+    }
+
+    "hoge/modules/posts.dependencyInjection" -> "hoge/modules/posts/repositories.NewPostMysqlRepository" [ color="saddlebrown" tooltip="at main.go:24: calling [hoge/modules/posts/repositories.NewPostMysqlRepository]" ]
+    "hoge/modules/posts.dependencyInjection" -> "hoge/modules/posts/services.NewPostService" [ color="saddlebrown" tooltip="at main.go:25: calling [hoge/modules/posts/services.NewPostService]" ]
+    "hoge/modules/posts.GinServer" -> "hoge/modules/posts.dependencyInjection" [ tooltip="at main.go:15: calling [hoge/modules/posts.dependencyInjection]" ]
+    "hoge/modules/posts.GinServer" -> "hoge/modules/posts/interfaces.NewPostController" [ color="saddlebrown" tooltip="at main.go:16: calling [hoge/modules/posts/interfaces.NewPostController]" ]
+    "command-line-arguments.ginServer" -> "hoge/modules/posts.GinServer" [ color="saddlebrown" tooltip="at main.go:32: calling [hoge/modules/posts.GinServer]" ]
+}
